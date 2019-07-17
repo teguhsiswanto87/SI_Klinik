@@ -2,16 +2,18 @@
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     header("location:index.php?error=8");
 } else {
-
+    $session = session_id();
     ?>
     <div class="ui secondary pointing menu">
-        <a class="active item ui label" style="text-transform: capitalize">
-            <img class="ui right spaced avatar image"
-                 src="https://cdn1.iconfinder.com/data/icons/user-interface-1-glyph/32/ui_avatar_profil_user_circle-128.png">
-            <?php echo "$_SESSION[full_name]"; ?>
+        <a class="active item ui label" style="text-transform: capitalize" title="Edit Akun"
+           href=<?php echo"media.php?m=pengguna&act=edit&id=$_SESSION[id_pengguna]"; ?>
+        >
+        <img class="ui right spaced avatar image"
+           src="https://cdn1.iconfinder.com/data/icons/user-interface-1-glyph/32/ui_avatar_profil_user_circle-128.png">
+            <?php echo "$_SESSION[nama]"; ?>
         </a>
         <a class="item" style="cursor: default">
-            <?php echo "$_SESSION[position]"; ?>
+            Admin
         </a>
         <div class="right menu">
             <!-- <a class="ui item" href="logout.php" id="btn-logout"> -->
@@ -25,8 +27,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
     <div class="ui basic modal">
         <div class="ui icon header">
-            <i class="bullhorn icon"></i>
-            Keluar dari Administrator Web TukuTiket ?
+            <i class="info circle icon"></i>
+            Keluar dari Administrator Medical Clinic?
         </div>
         <div class="content">
             <p> <?php echo "<b style='text-transform: capitalize'> $_SESSION[username]</b>"; ?>, Anda bisa login

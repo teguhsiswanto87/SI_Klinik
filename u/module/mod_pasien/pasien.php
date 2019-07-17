@@ -1,6 +1,6 @@
 <?php
 $m = $_GET['m'];
-$aksi = "module/mod_penumpang/aksi_penumpang.php";
+$aksi = "module/mod_pasien/aksi_pasien.php";
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 $passanger = new Passanger();
 

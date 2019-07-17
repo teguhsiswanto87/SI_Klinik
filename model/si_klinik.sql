@@ -1,10 +1,10 @@
 -- Sumber yang kami gunakan
--- database: https://1drv.ms/w/s!Alh7exiLCBttpx-T6bAOAqYQYtYy
+-- model: https://1drv.ms/w/s!Alh7exiLCBttpx-T6bAOAqYQYtYy
 -- UI: https://semantic-ui.com
 -- PHP : native
 -- Referensi Lain:
 
--- buat schema database 
+-- buat schema model
 
 create database si_klinik;
 use si_klinik;
@@ -25,7 +25,8 @@ create table pengguna(
     id_pengguna int(3) primary key auto_increment,
     username varchar(50) not null,
     password varchar(50) not null,
-    nama varchar(50) not null
+    nama varchar(50) not null,
+    id_session varchar(50)
 );
 
 -- 3
@@ -111,14 +112,23 @@ create table module(
 insert into module values
 (null, "beranda","?m=beranda","home","Y"),
 (null, "module","?m=module","clone","Y"),
-(null, "pasien","?m=pasien","hearbeat","Y"),
-(null, "petugas","?m=petugas","id badge","Y"),
-(null, "dokter","?m=dokter","user md","Y"),
-(null, "resep","?m=resep","clipboard list","Y"),
+(null, "pasien","?m=pasien","users","Y"),
+(null, "petugas","?m=petugas","user","Y"),
+(null, "dokter","?m=dokter","heartbeat","Y"),
+(null, "resep","?m=resep","first aid","Y"),
 (null, "pemeriksaan","?m=pemeriksaan","check square outline","Y"),
 (null, "pembayaran","?m=pembayaran","dollar sign","Y"),
 (null, "laporan","?m=laporan","book","Y"),
-(null, "pertanyaan","?m=pertanyaan","question circle","Y");
+(null, "pertanyaan","?m=pertanyaan","question circle orange","Y");
+
+-- Insert Pengguna => untuk login admin
+insert into pengguna(id_pengguna, username, password, nama) values
+(null, 'rashil',sha1('rashil'),'Rashil Alif'),
+(null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha'),
+(null, 'aher',sha1('aher'),'Angga Heru Saputra'),
+(null, 'wahid',sha1('wahid'),'Wahid Herlambang Suroso'),
+(null, 'brigita',sha1('brigita'),'Brigita Julia PNG'),
+(null, 'amin',sha1('admin'),'Teguh Siswanto');
 
 insert into users values
 ('amin',sha1('admin'),'teguh siswanto','teguhsiswanto@email.unikom.ac.id','8996976185','admin','N',null),

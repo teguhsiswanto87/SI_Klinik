@@ -2,8 +2,6 @@
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     header("location:index.php?error=8");
 } else {
-    include "../config/functions.php";
-
     $dataModule = getListModule();
     foreach ($dataModule as $data) {
         $module_name = str_replace(' ', '', strtolower($data['module_name']));

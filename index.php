@@ -1,4 +1,4 @@
-<?php header("location: u/"); ?>
+<?php //header("location: u/"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,26 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tugas2 - Ngopi</title>
+    <title>Klinik - Ngopi</title>
 </head>
 
 <body>
 <section class="landing">
     <div class="landing-inner">
-        <img src="https://image.ibb.co/f4vhyS/logo.png"/>
-        <p>A social network for <s>Nagih Utang</s> developers</p>
-<!--        <h1>Coming Soon</h1>-->
-        <h1><a href="u/" style="color: #fff;">Login Administrator</a></h1>
-        <?php
-        if ($_SERVER["REMOTE_ADDR"] == "23.95.44.165") {
-
-            echo "<div>Data login<br>";
-            echo "Username : dosen<br>";
-            echo "Password : dosen";
-            echo "
-            </div>";
-        }
-        ?>
+<!--        <img src="https://www.prodesigns.com/backend/img/sliders/medical-and-pharmaceutical/1523876893-01.png" height="254">-->
+<!--        <img src="https://image.ibb.co/f4vhyS/logo.png"/>-->
+        <img src="https://seeklogo.com/images/G/green-medical-health-logo-31098C0DAF-seeklogo.com.png"/>
+        <p>Tugas Sistem Informasi Klinik <s>Sarkem</s> Kesehatan</p>
+        <h1><a href="u/" style="color: currentColor; text-decoration: none">Coming Soon</a></h1>
+        <!--        <h1><a href="u/" style="color: #fff;">Login Administrator</a></h1>-->
         <div class="countdown"></div>
     </div>
 </section>
@@ -59,7 +51,8 @@
     .landing {
         position: relative;
         /* background-image: url('https://preview.ibb.co/c7Drsn/showcase.jpg'); */
-        background-image: url('https://images.pexels.com/photos/908284/pexels-photo-908284.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        /*background-image: url('https://images.pexels.com/photos/908284/pexels-photo-908284.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');*/
+        background-image: url('https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -91,7 +84,7 @@
     }
 
     .countdown div:first-child {
-        background: #2980b9;
+        background: #27ae60;
         /* background: #17a2b8; */
     }
 
@@ -150,7 +143,7 @@
     const countdown = document.querySelector('.countdown');
 
     // Set Launch Date (ms)
-    const launchDate = new Date('Jul 14, 2019 13:00:00').getTime();
+    const launchDate = new Date('Jul 24, 2019 13:00:00').getTime();
 
     // Update every second
     const intvl = setInterval(() => {

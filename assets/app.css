@@ -4,27 +4,28 @@ h1 {
     margin: 3rem auto !important;
 }
 
-p{
+p {
     text-align: center;
     margin: 3rem 8rem 0rem 8rem !important;
 }
 
-button{
+button {
     margin: 1rem auto !important;
 }
 
 /* card material design */
 .card {
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  height: 90%;
-  padding: 1rem;
-  position: relative;
-  width: 90%;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 90%;
+    padding: 1rem;
+    position: relative;
+    width: 90%;
 }
+
 .card-2 {
-    box-shadow: 0 5px 15px 0 rgba(0,0,0,.2);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
     border-radius: 1rem;
 }
 

@@ -1,6 +1,7 @@
 <?php
 
 include "../../../config/functions.php";
+include "../../../model/Module.php";
 
 $m = $_GET['m'];
 $act = $_GET['act'];

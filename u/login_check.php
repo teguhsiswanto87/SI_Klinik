@@ -18,7 +18,7 @@ if (!isset($_POST['btnLogin'])) {
         //Login tidak bisa diinjeksi ya...
         header("location: index.php?error=6");
     } else {
-        $res = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password' AND block='N' ");
+        $res = $conn->query("SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
         $user_data = $res->fetch_assoc();
         $row_cnt = $res->num_rows;
 
@@ -27,17 +27,17 @@ if (!isset($_POST['btnLogin'])) {
             session_start();
 
             // bikin variabel session
+            $_SESSION['id_pengguna'] = $user_data['id_pengguna'];
             $_SESSION['username'] = $user_data['username'];
             $_SESSION['password'] = $user_data['password'];
-            $_SESSION['full_name'] = $user_data['full_name'];
-            $_SESSION['position'] = $user_data['position'];
+            $_SESSION['nama'] = $user_data['nama'];
 
             // bikin id_session yang unik dan mengupdatenya agar saat login langsung berubah
             // agar user biasa sulit untuk mengganti password Administrator
             $sid_lama = session_id();
             session_regenerate_id();
             $sid_baru = session_id();
-            $conn->query("UPDATE users SET id_session='$sid_baru' WHERE username='$username'");
+            $conn->query("UPDATE pengguna SET id_session='$sid_baru' WHERE username='$username'");
 
             //langsung direct ke modul
             header("location:media.php?m=module");

@@ -3,6 +3,7 @@ session_start();
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     header("location:index.php?error=8");
 } else {
+    include "../config/functions.php";
 
     ?>
     <!DOCTYPE html>
@@ -12,7 +13,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>TukuTiket Administrator</title>
+        <title>Medical Clinic Administrator</title>
         <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/paper-plane--v2.png"
               type="image/x-icon">
         <!-- Semantic CDN -->

@@ -1,4 +1,7 @@
 <?php
+// call Class Module
+include "../model/Module.php";
+
 $m = $_GET['m'];
 $aksi = "module/mod_module/aksi_module.php";
 $act = isset($_GET['act']) ? $_GET['act'] : '';
@@ -120,7 +123,7 @@ switch ($act) {
                 <input type='hidden' name='id' value='$data[module_id]'>
                 <div class='field'>
                     <label>Nama Modul</label>
-                    <input type='text' name='module_name' placeholder='$data[module_name]' value='$data[module_name]'>
+                    <input type='text' name='module_name' placeholder='$data[module_name]' value='$data[module_name]' autofocus>
                 </div>
                 <div class='field'>
                     <label>Link</label>
