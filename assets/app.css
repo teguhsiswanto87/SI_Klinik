@@ -1,0 +1,30 @@
+/* this app.css only for index.php in adminweb */
+h1 {
+    text-transform: uppercase !important;
+    margin: 3rem auto !important;
+}
+
+p{
+    text-align: center;
+    margin: 3rem 8rem 0rem 8rem !important;
+}
+
+button{
+    margin: 1rem auto !important;
+}
+
+/* card material design */
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 90%;
+  padding: 1rem;
+  position: relative;
+  width: 90%;
+}
+.card-2 {
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,.2);
+    border-radius: 1rem;
+}
+
