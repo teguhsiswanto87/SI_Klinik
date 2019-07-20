@@ -145,7 +145,10 @@ switch ($act) {
                     <button class='ui basic primary button right floated' type='submit' name='btnPenggunaAdd'>Perbarui
                     </button>
                 </form>
+                <br>
+                <a href='' style='border-bottom: 1px dotted currentColor; ' title='belum cuy'> Ganti Password </a>
             </div>
+            
         </div>";
         break;
 } ?>

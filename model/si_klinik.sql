@@ -26,6 +26,7 @@ create table pengguna(
     username varchar(50) not null,
     password varchar(50) not null,
     nama varchar(50) not null,
+    url_photo varchar(100),
     id_session varchar(50)
 );
 
@@ -122,15 +123,16 @@ insert into module values
 (null, "pertanyaan","?m=pertanyaan","question circle orange","Y");
 
 -- Insert Pengguna => untuk login admin
-insert into pengguna(id_pengguna, username, password, nama) values
-(null, 'rashil',sha1('rashil'),'Rashil Alif'),
-(null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha'),
-(null, 'aher',sha1('aher'),'Angga Heru Saputra'),
-(null, 'wahid',sha1('wahid'),'Wahid Herlambang Suroso'),
-(null, 'brigita',sha1('brigita'),'Brigita Julia PNG'),
-(null, 'amin',sha1('admin'),'Teguh Siswanto');
+insert into pengguna(id_pengguna, username, password, nama, url_photo) values
+(null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
+(null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha','https://akademik.unikom.ac.id/foto/10117048.jpg'),
+(null, 'aher',sha1('aher'),'Angga Heru Saputra','https://akademik.unikom.ac.id/foto/10117058.jpg'),
+(null, 'wahid',sha1('wahid'),'Wahid Herlambang Suroso','https://akademik.unikom.ac.id/foto/10117064.jpg'),
+(null, 'brigita',sha1('brigita'),'Brigita Julia PNG','https://akademik.unikom.ac.id/foto/10117074.jpg'),
+(null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
-insert into users values
-('amin',sha1('admin'),'teguh siswanto','teguhsiswanto@email.unikom.ac.id','8996976185','admin','N',null),
-('wahid',sha1('admin'),'Wahid Herlambang','wahidherlambang31@email.unikom.ac.id','8780909890','admin','N',null);
+-- YG DI BAWAH INI BUKA APA-APA
+-- insert into users values
+-- ('amin',sha1('admin'),'teguh siswanto','teguhsiswanto@email.unikom.ac.id','8996976185','admin','N',null),
+-- ('wahid',sha1('admin'),'Wahid Herlambang','wahidherlambang31@email.unikom.ac.id','8780909890','admin','N',null);
 

@@ -6,10 +6,12 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     ?>
     <div class="ui secondary pointing menu">
         <a class="active item ui label" style="text-transform: capitalize" title="Edit Akun"
-           href=<?php echo"media.php?m=pengguna&act=edit&id=$_SESSION[id_pengguna]"; ?>
+           href=<?php echo "media.php?m=pengguna&act=edit&id=$_SESSION[id_pengguna]"; ?>
         >
-        <img class="ui right spaced avatar image"
-           src="https://cdn1.iconfinder.com/data/icons/user-interface-1-glyph/32/ui_avatar_profil_user_circle-128.png">
+            <!--        <img class="ui right spaced avatar image"
+                                src="https://cdn1.iconfinder.com/data/icons/user-interface-1-glyph/32/ui_avatar_profil_user_circle-128.png">-->
+            <img class="ui right spaced avatar image"
+                 src=<?php echo "$_SESSION[photo]"; ?> >
             <?php echo "$_SESSION[nama]"; ?>
         </a>
         <a class="item" style="cursor: default">

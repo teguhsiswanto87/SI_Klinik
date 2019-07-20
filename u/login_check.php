@@ -31,6 +31,7 @@ if (!isset($_POST['btnLogin'])) {
             $_SESSION['username'] = $user_data['username'];
             $_SESSION['password'] = $user_data['password'];
             $_SESSION['nama'] = $user_data['nama'];
+            $_SESSION['photo'] = $user_data['url_photo'];
 
             // bikin id_session yang unik dan mengupdatenya agar saat login langsung berubah
             // agar user biasa sulit untuk mengganti password Administrator
