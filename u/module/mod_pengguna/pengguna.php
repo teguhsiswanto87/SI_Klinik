@@ -125,6 +125,7 @@ switch ($act) {
             </div>
             <div class='eight wide column'>
                 <h2 class='ui header'></h2>
+                <img class='ui small centered circular image' src='$_SESSION[photo]'>
                 <form class='ui form' method='POST' name='formPengguna' onsubmit=\"return penggunaValidation('update')\"
                       action='$aksi?m=$m&act=update'>
                     <div class='ui grid'>

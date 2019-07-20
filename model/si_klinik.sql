@@ -136,3 +136,9 @@ insert into pengguna(id_pengguna, username, password, nama, url_photo) values
 -- ('amin',sha1('admin'),'teguh siswanto','teguhsiswanto@email.unikom.ac.id','8996976185','admin','N',null),
 -- ('wahid',sha1('admin'),'Wahid Herlambang','wahidherlambang31@email.unikom.ac.id','8780909890','admin','N',null);
 
+username = 'rashil'  pass = 'rashil'
+username = 'rizal'   pass = 'rizal'
+username = 'aher'    pass = 'aher'
+username = 'wahid'   pass = 'wahid'
+username = 'brigita' pass = 'brigita'
+username = 'amin'    pass = 'admin'
