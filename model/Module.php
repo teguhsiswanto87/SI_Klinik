@@ -41,11 +41,12 @@ class Module
     }
 
 // input data module
-    function insertModule($module_name, $link, $icon, $active)
+    function insertModule($module_name, $link, $icon, $active, $access_director, $access_admin, $access_doctor)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO module(module_name, link, icon, active) VALUES('$module_name','$link','$icon','$active') ";
+            $sql = "INSERT INTO module(module_name, link, icon, active, access_director, access_admin, access_doctor)
+                    VALUES('$module_name','$link','$icon','$active','$access_director','$access_admin','$access_doctor') ";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }
@@ -53,11 +54,18 @@ class Module
     }
 
 // update data module
-    function updateModule($module_id, $module_name, $link, $icon, $active)
+    function updateModule($module_id, $module_name, $link, $icon, $active, $access_director, $access_admin, $access_doctor)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE module SET module_name='$module_name',link='$link',icon='$icon',active='$active' WHERE module_id='$module_id'";
+            $sql = "UPDATE module SET module_name='$module_name',
+                                        link='$link',
+                                        icon='$icon',
+                                        active='$active',
+                                        access_director='$access_director', 
+                                        access_admin='$access_admin', 
+                                        access_doctor='$access_doctor' 
+                        WHERE module_id='$module_id'";
             $res = $conn->query($sql);
 
             if ($res) return true; else return false;

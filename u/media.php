@@ -14,7 +14,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Medical Clinic Administrator</title>
-        <link rel="shortcut icon" href="https://img.icons8.com/cotton/2x/paper-plane--v2.png"
+        <link rel="shortcut icon" href="https://img.icons8.com/doodle/48/000000/hospital.png"
               type="image/x-icon">
         <!-- Semantic CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
@@ -36,6 +36,45 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             <?php include "content.php"; ?>
         </div>
     </div>
+
+
+    <!--  KUMPULAN MODAL  -->
+    <!--  delete modal -->
+    <div class="ui tiny modal delete" style='width: 25rem;margin: 0 auto;'>
+        <div class="header" id="delete-modal-title">Hapus Data ID=</div>
+        <div class="content">
+            <p id="delete-modal-text">Anda yakin hapus data </p>
+        </div>
+        <div class="actions">
+            <div class="ui cancel red button">Batal</div>
+            <div class="ui ok right labeled icon button green">
+                Hapus
+                <i class='checkmark icon'></i>
+            </div>
+        </div>
+    </div>
+    <!-- logout modal -->
+    <div class="ui basic modal logout">
+        <div class="ui icon header">
+            <i class="info circle icon"></i>
+            Keluar dari Administrator Medical Clinic?
+        </div>
+        <div class="content">
+            <p> <?php echo "<b style='text-transform: capitalize'> $_SESSION[username]</b>"; ?>, Anda bisa login
+                kembali kapan pun dan dimana pun</p>
+        </div>
+        <div class="actions">
+            <div class="ui yellow basic cancel inverted button">
+                <i class="remove icon"></i>
+                Tidak
+            </div>
+            <div class="ui blue ok inverted button">
+                <i class="checkmark icon"></i>
+                Ya
+            </div>
+        </div>
+    </div>
+
     </body>
     <!-- javascript addition -->
     <script type="text/javascript" src="../assets/app.js"></script>

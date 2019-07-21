@@ -1,7 +1,74 @@
-// untuk menampilkan dropdown dari jenis_kelamin
+// DROPDOWN :: untuk menampilkan dropdown dari jenis_kelamin
 $('.ui.dropdown')
     .dropdown();
+// MODAL :: memunculkan modal
+// $('.mini.modal')
+//     .modal('show');
 
+// MESSAGE :: saat ada message/notification
+$('.message')
+    .transition('set looping')
+    .transition('bounce', '2000ms')
+    //saat pointer datang
+    .on('mouseover', function () {
+        $(this)
+            .transition('remove looping')
+    })
+    //saat pointer keluar
+    .on('mouseout', function () {
+        $(this)
+            .transition('set looping')
+            .transition('bounce', '2000ms');
+    })
+    // untuk hide the message
+    .on('click', function () {
+        $(this)
+            .remove('.message')
+            .transition('remove looping')
+            .transition('fade')
+
+    });
+$('#btn-logout')
+    .on('click', function () {
+        $('.ui.modal.logout').modal({
+            closable: true,
+            onDeny: function () {
+
+            },
+            onApprove: function () {
+                window.location.href = 'logout.php';
+            }
+        }).modal('show');
+    });
+
+// $('#btn-delete')
+//     .on('click', function () {
+//         $('.ui.modal.delete').modal({
+//             closable: true,
+//             onDeny: function () {
+//
+//             },
+//             onApprove: function () {
+//                 window.alert('Approved!');
+//             }
+//         }).modal('show')
+//     });
+
+function deleteData($link, $title = "", $text = "") {
+    $('.ui.modal.delete').modal({
+        closable: true,
+        onDeny: function () {
+
+        },
+        onApprove: function () {
+            location.replace($link);
+        }
+    }).modal('show');
+    $('#delete-modal-title').append($title);
+    $('#delete-modal-text').append($text);
+}
+
+// ----------------VALIDATION MANUAL
 //validasi login
 function loginAuth() {
     var username = document.formLogin.username.value.trim();

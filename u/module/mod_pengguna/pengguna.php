@@ -26,7 +26,7 @@ switch ($act) {
                 <tr>
                 <th class='one wide'>No</th>
                 <th class='one wide'>Username</th>
-                <th class='four wide'>Nama lengkap</th>
+                <th class='four wide'>Status</th>
                 <th class='two wide'>Aksi</th>
                 </tr>
                 </thead>
@@ -38,7 +38,7 @@ switch ($act) {
             echo "<tr>
                 <td>$no</td>
                 <td>$data[username]</td>
-                <td>$data[nama]</td>
+                <td>$data[status]</td>
                 <td style='display: none' >
                     <a href='?m=$m&act=edit&id=$data[id_pengguna]'>Edit</a>  
                     <a href='$aksi?m=$m&act=hapus&id=$data[id_pengguna]'
@@ -151,5 +151,9 @@ switch ($act) {
             </div>
             
         </div>";
+        break;
+
+    case "gantipassword":
+
         break;
 } ?>

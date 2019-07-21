@@ -1,8 +1,9 @@
 -- Sumber yang kami gunakan
 -- model: https://1drv.ms/w/s!Alh7exiLCBttpx-T6bAOAqYQYtYy
 -- UI: https://semantic-ui.com
+-- icons : icons8.com
 -- PHP : native
--- Referensi Lain:
+-- Referensi Lain: -
 
 -- buat schema model
 
@@ -25,7 +26,7 @@ create table pengguna(
     id_pengguna int(3) primary key auto_increment,
     username varchar(50) not null,
     password varchar(50) not null,
-    nama varchar(50) not null,
+    status varchar(50) not null,
     url_photo varchar(100),
     id_session varchar(50)
 );
@@ -35,7 +36,6 @@ create table petugas_administrasi(
     id_petugas int(3) primary key auto_increment,
     id_pengguna int(3),
     nama_pegawai varchar(50) not null,
-    password varchar(50) not null,
     nama varchar(50) not null,
     alamat varchar(100),
     kontak varchar(13),
@@ -107,38 +107,37 @@ create table module(
     module_name varchar(50) not null,
     link varchar(50),
     icon varchar(50),
-    active enum('Y','N') not null default 'Y'
+    active enum('Y','N') not null default 'Y',
+    access_director enum('Y','N'),
+    access_admin enum('Y','N'),
+    access_doctor enum('Y','N')
 )Engine=InnoDB;
 -- ### INSERT DATA MODULE
-insert into module values
-(null, "beranda","?m=beranda","home","Y"),
-(null, "module","?m=module","clone","Y"),
-(null, "pasien","?m=pasien","users","Y"),
-(null, "petugas","?m=petugas","user","Y"),
-(null, "dokter","?m=dokter","heartbeat","Y"),
-(null, "resep","?m=resep","first aid","Y"),
-(null, "pemeriksaan","?m=pemeriksaan","check square outline","Y"),
-(null, "pembayaran","?m=pembayaran","dollar sign","Y"),
-(null, "laporan","?m=laporan","book","Y"),
-(null, "pertanyaan","?m=pertanyaan","question circle orange","Y");
+insert into module(module_id, module_name, link, icon, active, access_director, access_admin, access_doctor) values
+(1, "beranda","?m=beranda","home","Y","Y","Y","Y"),
+(2, "module","?m=module","clone","Y","Y","Y","Y"),
+(3, "pasien","?m=pasien","users","Y","Y","Y","Y"),
+(4, "pengguna","?m=pengguna","user circle outline","Y","Y","Y","Y"),
+(5, "petugas","?m=petugas","user outline","Y","Y","Y","Y"),
+(6, "dokter","?m=dokter","heartbeat","Y","Y","Y","Y"),
+(7, "resep","?m=resep","first aid","Y","Y","Y","Y"),
+(8, "pemeriksaan","?m=pemeriksaan","check square outline","Y","Y","Y","Y"),
+(9, "pembayaran","?m=pembayaran","dollar sign","Y","Y","Y","Y"),
+(10, "laporan","?m=laporan","book","Y","Y","Y","Y"),
+(null, "pertanyaan","?m=pertanyaan","question circle orange","Y","Y","Y","Y");
 
 -- Insert Pengguna => untuk login admin
-insert into pengguna(id_pengguna, username, password, nama, url_photo) values
-(null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
-(null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha','https://akademik.unikom.ac.id/foto/10117048.jpg'),
-(null, 'aher',sha1('aher'),'Angga Heru Saputra','https://akademik.unikom.ac.id/foto/10117058.jpg'),
-(null, 'wahid',sha1('wahid'),'Wahid Herlambang Suroso','https://akademik.unikom.ac.id/foto/10117064.jpg'),
-(null, 'brigita',sha1('brigita'),'Brigita Julia PNG','https://akademik.unikom.ac.id/foto/10117074.jpg'),
-(null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
+insert into pengguna(id_pengguna, username, password, status, url_photo) values
+(null, 'dokter',sha1('dokter'),'dokter','https://img.icons8.com/color/48/000000/doctor-male.png'),
+(null, 'admin',sha1('admin'),'admin','https://img.icons8.com/color/48/000000/administrator-male.png'),
+(null, 'dirut',sha1('dirut'),'dirut','https://img.icons8.com/dusk/50/000000/admin-settings-male.png');
+-- (null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
+-- (null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha','https://akademik.unikom.ac.id/foto/10117048.jpg'),
+-- (null, 'aher',sha1('aher'),'Angga Heru Saputra','https://akademik.unikom.ac.id/foto/10117058.jpg'),
+-- (null, 'wahid',sha1('wahid'),'Wahid Herlambang Suroso','https://akademik.unikom.ac.id/foto/10117064.jpg'),
+-- (null, 'brigita',sha1('brigita'),'Brigita Julia PNG','https://akademik.unikom.ac.id/foto/10117074.jpg'),
+-- (null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
--- YG DI BAWAH INI BUKA APA-APA
--- insert into users values
--- ('amin',sha1('admin'),'teguh siswanto','teguhsiswanto@email.unikom.ac.id','8996976185','admin','N',null),
--- ('wahid',sha1('admin'),'Wahid Herlambang','wahidherlambang31@email.unikom.ac.id','8780909890','admin','N',null);
 
-username = 'rashil'  pass = 'rashil'
-username = 'rizal'   pass = 'rizal'
-username = 'aher'    pass = 'aher'
-username = 'wahid'   pass = 'wahid'
-username = 'brigita' pass = 'brigita'
-username = 'amin'    pass = 'admin'
+insert into petugas_administrasi(id_petugas, id_pengguna, nama_pegawai, nama, alamat, kontak) values ;
+()

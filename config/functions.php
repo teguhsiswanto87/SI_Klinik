@@ -90,3 +90,35 @@ class LoginCheck
     }
 }
 
+class InfoCheck
+{
+    function showInfo($title = "", $message = "")
+    {
+        echo "<div class=\"ui floating message\" style='position: fixed; right: 1rem; bottom: 2rem;'>
+                    <i class=\"close icon\"></i>
+                    <div class=\"header\">$title.</div>
+                    <p>$message</p>
+                </div>";
+    }
+
+    function checkInfo($par)
+    {
+        if (isset($_GET[$par])) {
+            $info = $_GET[$par];
+            switch ($info) {
+                default :
+                    $this->showInfo("Unknown Info");
+                    break;
+                case 1 :
+                    $this->showInfo("Module berhasil ditambahkan", "Sekarang anda bisa mengaksesnya");
+                    break;
+                case 2 :
+                    $this->showInfo("Module telah di-<i>update</i>", "Sekarang anda bisa melihat perubahannya");
+                    break;
+                case 3 :
+                    $this->showInfo("Hapus satu module berhasil", "Module yang telah dihapus tidak bisa dikembalikan lagi");
+                    break;
+            }
+        }
+    }
+}

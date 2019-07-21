@@ -24,13 +24,33 @@ if (!isset($_POST['btnLogin'])) {
 
         // Apabila username dan password ditemukan (benar) & hanya satu
         if ($row_cnt == 1) {
-            session_start();
 
-            // bikin variabel session
+            switch ($user_data['status']) {
+                case "dirut":
+                    $res2 = $conn->query("SELECT * FROM direktur_utama WHERE id_pengguna='$user_data[id_pengguna]' ");
+                    $user_detail = $res2->fetch_assoc();
+                    session_start();
+                    $_SESSION['nama'] = $user_detail['nama_direktur'];
+                    break;
+                case "admin":
+                    $res2 = $conn->query("SELECT * FROM petugas_administrasi WHERE id_pengguna='$user_data[id_pengguna]' ");
+                    $user_detail = $res2->fetch_assoc();
+                    session_start();
+                    $_SESSION['nama'] = $user_detail['nama_pegawai'];
+                    break;
+                case "dokter":
+                    $res2 = $conn->query("SELECT * FROM dokter WHERE id_pengguna='$user_data[id_pengguna]' ");
+                    $user_detail = $res2->fetch_assoc();
+                    session_start();
+                    $_SESSION['nama'] = $user_detail['nama_dokter'];
+                    break;
+
+            }
+
             $_SESSION['id_pengguna'] = $user_data['id_pengguna'];
             $_SESSION['username'] = $user_data['username'];
             $_SESSION['password'] = $user_data['password'];
-            $_SESSION['nama'] = $user_data['nama'];
+            $_SESSION['status'] = $user_data['status'];
             $_SESSION['photo'] = $user_data['url_photo'];
 
             // bikin id_session yang unik dan mengupdatenya agar saat login langsung berubah
