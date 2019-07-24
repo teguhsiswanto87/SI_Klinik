@@ -217,16 +217,25 @@ switch ($act) {
                                 <label for=\"access_doctor\">Dokter</label>
                             </div>
                         </div>
-                    </div>
+                    </div>";
+        $idModul = isset($_GET['id']) ? $_GET['id'] : "";
+        if ($m == 'module' AND $idModul == 2) {
+
+        } else {
+
+
+            echo "
                 <div class='field'>
                     <label>Aktif</label>
                     <div class='ui checked checkbox'>";
-        ($data['active'] == 'Y') ? $checked = 'checked' : $checked = '';
-        echo "
+            ($data['active'] == 'Y') ? $checked = 'checked' : $checked = '';
+            echo "
                         <input type='checkbox' name='active' value='Y' $checked>
                         <label>Tampilkan di Menu Admin</label>
                     </div>
-                </div>
+                </div>";
+        }
+        echo "
                 <button class='ui basic primary button right floated' type='submit'>Perbarui</button>
             </form>
         </div>
