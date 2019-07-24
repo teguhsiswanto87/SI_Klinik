@@ -10,9 +10,9 @@
 create database si_klinik;
 use si_klinik;
 
--- 1
+-- 1 // id_pasien -> ps0001
 create table pasien(
-    id_pasien int(3) primary key auto_increment,
+    id_pasien varchar(6) primary key,
     nama_pasien varchar(50) not null,
     tempat_lahir varchar(50),
     tgl_lahir date,
@@ -21,9 +21,9 @@ create table pasien(
     kontak varchar(13)
 );
 
--- 2
+-- 2 // id_pengguna -> pg0001
 create table pengguna(
-    id_pengguna int(3) primary key auto_increment,
+    id_pengguna varchar(6) primary key,
     username varchar(50) not null,
     password varchar(50) not null,
     status varchar(50) not null,
@@ -31,10 +31,10 @@ create table pengguna(
     id_session varchar(50)
 );
 
--- 3
+-- 3 // id_petugas -> pa0001
 create table petugas_administrasi(
-    id_petugas int(3) primary key auto_increment,
-    id_pengguna int(3),
+    id_petugas varchar(6) primary key,
+    id_pengguna varchar(6),
     nama_pegawai varchar(50) not null,
     nama varchar(50) not null,
     alamat varchar(100),
@@ -43,10 +43,10 @@ create table petugas_administrasi(
     constraint fk_pa_pengguna foreign key(id_pengguna) references pengguna(id_pengguna)
 
 );
--- 4
+-- 4 // id_dokterr -> dk0001
 create table dokter(
-    id_dokter int(3) primary key auto_increment,
-    id_pengguna int(3),
+    id_dokter varchar(6) primary key,
+    id_pengguna varchar(6),
     nama_dokter varchar(50) not null,
     spesialisasi varchar(50) not null,
     jadwal varchar(50) not null,
@@ -54,11 +54,11 @@ create table dokter(
     constraint fk_dok_pengguna foreign key(id_pengguna) references pengguna(id_pengguna)
 
 );
--- 5
+-- 5 // id_obat -> rd0001
 create table resep_dokter(
-    id_obat int(3) primary key auto_increment,
-    id_dokter int(3),
-    id_pasien int(3),
+    id_obat varchar(6) primary key,
+    id_dokter varchar(6),
+    id_pasien varchar(6),
     nama_obat varchar(50) not null,
     jenis varchar(50),
 
@@ -66,11 +66,11 @@ create table resep_dokter(
     constraint fk_rd_pasien foreign key(id_pasien) references pasien(id_pasien)
 
 );
--- 6
+-- 6 // id_pemeriksaan -> ip0001
 create table info_pemeriksaan(
-    id_pemeriksaan int(3) primary key auto_increment,
-    id_dokter int(3),
-    id_pasien int(3),
+    id_pemeriksaan varchar(6) primary key,
+    id_dokter varchar(6),
+    id_pasien varchar(6),
     tgl_periksa date not null,
     hasil_periksa varchar(50),
 
@@ -78,11 +78,11 @@ create table info_pemeriksaan(
     constraint fk_ip_dokter foreign key(id_dokter) references dokter(id_dokter)
 
 );
--- 7
+-- 7 // no_transaksi -> pb0001
 create table pembayaran(
-    no_transaksi int(3) primary key auto_increment,
-    id_pasien int(3),
-    id_petugas int(3),
+    no_transaksi varchar(6) primary key,
+    id_pasien varchar(6),
+    id_petugas varchar(6),
     tgl date not null,
     biaya int(12),
 
@@ -90,10 +90,10 @@ create table pembayaran(
     constraint fk_pbayar_pasien foreign key(id_pasien) references pasien(id_pasien)
 
 );
--- 8
+-- 8 // id_direktur -> du0001
 create table direktur_utama(
-    id_direktur int(3) primary key auto_increment,
-    id_pengguna int(3),
+    id_direktur varchar(6) primary key,
+    id_pengguna varchar(6),
     nama_direktur varchar(50),
 
     constraint fk_dirut_pengguna foreign key(id_pengguna) references pengguna(id_pengguna)
@@ -128,9 +128,10 @@ insert into module(module_id, module_name, link, icon, active, access_director, 
 
 -- Insert Pengguna => untuk login admin
 insert into pengguna(id_pengguna, username, password, status, url_photo) values
-(null, 'dokter',sha1('dokter'),'dokter','https://img.icons8.com/color/48/000000/doctor-male.png'),
-(null, 'admin',sha1('admin'),'admin','https://img.icons8.com/color/48/000000/administrator-male.png'),
-(null, 'dirut',sha1('dirut'),'dirut','https://img.icons8.com/dusk/50/000000/admin-settings-male.png');
+('pg0001', 'dokter',sha1('dokter'),'dokter','https://img.icons8.com/color/48/000000/doctor-male.png'),
+('pg0002', 'admin',sha1('admin'),'admin','https://img.icons8.com/dusk/50/000000/admin-settings-male.png'),
+('pg0003', 'dirut',sha1('dirut'),'dirut','https://img.icons8.com/color/48/000000/administrator-male.png');
+
 -- (null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
 -- (null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha','https://akademik.unikom.ac.id/foto/10117048.jpg'),
 -- (null, 'aher',sha1('aher'),'Angga Heru Saputra','https://akademik.unikom.ac.id/foto/10117058.jpg'),
@@ -139,5 +140,5 @@ insert into pengguna(id_pengguna, username, password, status, url_photo) values
 -- (null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
 
-insert into petugas_administrasi(id_petugas, id_pengguna, nama_pegawai, nama, alamat, kontak) values ;
-()
+-- insert into petugas_administrasi(id_petugas, id_pengguna, nama_pegawai, nama, alamat, kontak) values ;
+-- ()

@@ -58,7 +58,8 @@ VALUES('$username','$password','$nama')";
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE pengguna SET username='$username',nama='$nama' WHERE id_pengguna='$id_pengguna' AND id_session='$id_session' ";
+            $sql = "UPDATE pengguna SET username='$username',nama='$nama' 
+                    WHERE id_pengguna='$id_pengguna' AND id_session='$id_session' ";
             $res = $conn->query($sql);
 
             if ($res) return true; else return false;

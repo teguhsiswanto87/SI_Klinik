@@ -2,7 +2,7 @@
 $m = $_GET['m'];
 $aksi = "module/mod_pasien/aksi_pasien.php";
 $act = isset($_GET['act']) ? $_GET['act'] : '';
-$passanger = new Passanger();
+$pasien = new Passanger();
 
 switch ($act) {
     default:
@@ -31,7 +31,7 @@ switch ($act) {
                 </thead>
                 <tbody>";
         $no = 1;
-        $dataPassanger = $passanger->getListPassanger();
+        $dataPassanger = $pasien->getListPassanger();
         foreach ($dataPassanger as $data) {
             echo "<tr>
                 <td>$no</td>
@@ -40,9 +40,9 @@ switch ($act) {
                 <td>$data[email]</td>
                 <td>$data[phone]</td>
                 <td>
-                <a href='?m=$m&act=edit&id=$data[passanger_id]'>Edit</a> | ";
-            echo "<a href='$aksi?m=$m&act=hapus&id=$data[passanger_id]'
-                    onclick='return confirm(`Hapus $_GET[m] $data[first_name] $data[last_name] ID=$data[passanger_id]?`);'
+                <a href='?m=$m&act=edit&id=$data[pasien_id]'>Edit</a> | ";
+            echo "<a href='$aksi?m=$m&act=hapus&id=$data[pasien_id]'
+                    onclick='return confirm(`Hapus $_GET[m] $data[first_name] $data[last_name] ID=$data[pasien_id]?`);'
                     >Hapus</a>";
             echo "
                 </td>
@@ -72,7 +72,7 @@ switch ($act) {
         <div class="ui stackable grid container">
             <div class="eight wide column">
                 <h2 class="ui header"></h2>
-                <form class="ui form" method="POST" name="formPassanger" onsubmit="return passangerValidation('tambah')"
+                <form class="ui form" method="POST" name="formPassanger" onsubmit="return pasienValidation('tambah')"
                       action=<?php echo "$aksi?m=$m&act=tambah" ?>
                 >
                     <div class="ui grid">
@@ -141,7 +141,7 @@ switch ($act) {
         break;
 
     case "edit":
-        $data = $passanger->getItemPassanger($_GET['id']);
+        $data = $pasien->getItemPassanger($_GET['id']);
         echo " 
     <div class='ui stackable grid container'>
         <div class='four wide column'>
@@ -157,7 +157,7 @@ switch ($act) {
         <div class='ui stackable grid container'>
             <div class='eight wide column'>
                 <h2 class='ui header'></h2>
-                <form class='ui form' method='POST' name='formPassanger' onsubmit=\"return passangerValidation('update')\"
+                <form class='ui form' method='POST' name='formPassanger' onsubmit=\"return pasienValidation('update')\"
                       action='$aksi?m=$m&act=update'>
                     <div class='ui grid'>
                         <div class='field column wide eight' id='usernameField'>

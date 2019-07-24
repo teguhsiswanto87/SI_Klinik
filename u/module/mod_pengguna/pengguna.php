@@ -111,46 +111,49 @@ switch ($act) {
 
     case "edit":
         $data = $pengguna->getItemPengguna($_GET['id']);
-        $session = session_id();
-        echo "
-        <div class='ui stackable grid container'>
-            <div class='four wide column'>
-                <a onclick='self.history.back()' class='ui labeled icon button'>
-                    <i class='arrow left icon'></i>
+        $session = session_id(); ?>
+
+        <div class="ui stackable grid container">
+            <div class="four wide column">
+                <a onclick="self.history.back()" class="ui labeled icon button">
+                    <i class="arrow left icon"></i>
                     Kembali
                 </a>
             </div>
-            <div class='eight wide column'>
+            <div class="eight wide column">
                 <h2>Edit Pengguna</h2>
             </div>
-            <div class='eight wide column'>
-                <h2 class='ui header'></h2>
-                <img class='ui small centered circular image' src='$_SESSION[photo]'>
-                <form class='ui form' method='POST' name='formPengguna' onsubmit=\"return penggunaValidation('update')\"
-                      action='$aksi?m=$m&act=update'>
-                    <div class='ui grid'>
-                        <div class='field column wide eight' id='usernameField'>
-                            <label>Username</label>
-                            <input type='hidden' value='$data[id_pengguna]' name='id'>
-                            <input type='hidden' value='$session' name='id_session'>
-                            <input type='text' name='username' placeholder='$data[username]' value='$data[username]' minlength='4' maxlength='50'
-                                   id='username' autofocus>
-                        </div>
+            <div class="eight wide column">
+                <h2 class="ui header"></h2>
+                <img class="ui small centered circular image" src="<?php $_SESSION['photo'] ?>">
+                <form class="ui form" method="POST" name="formPengguna" onsubmit=\"return penggunaValidation(
+                "update")\"
+                action="$aksi?m=$m&act=update">
+                <div class="ui grid">
+                    <div class="field column wide eight" id="usernameField">
+                        <label>Username</label>
+                        <input type="hidden" value="$data[id_pengguna]" name="id">
+                        <input type="hidden" value="$session" name="id_session">
+                        <input type="text" name="username" placeholder="$data[username]" value="$data[username]"
+                               minlength="4" maxlength="50"
+                               id="username" autofocus>
                     </div>
-                    <br>
-                    <div class='field'>
-                        <label>Nama Lengkap</label>
-                        <input type='text' name='nama' placeholder='$data[nama]' value='$data[nama]' maxlength='50'>
-                    </div>
-                    <div class='ui error message'></div>
-                    <button class='ui basic primary button right floated' type='submit' name='btnPenggunaAdd'>Perbarui
-                    </button>
+                </div>
+                <br>
+                <div class="field">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama" placeholder="$data[nama]" value="$data[nama]" maxlength="50">
+                </div>
+                <div class="ui error message"></div>
+                <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">Perbarui
+                </button>
                 </form>
                 <br>
-                <a href='' style='border-bottom: 1px dotted currentColor; ' title='belum cuy'> Ganti Password </a>
+                <a href="" style="border-bottom: 1px dotted currentColor; " title="belum cuy"> Ganti Password </a>
             </div>
-            
-        </div>";
+
+        </div>
+        <?php
         break;
 
     case "gantipassword":
