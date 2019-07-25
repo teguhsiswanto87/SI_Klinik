@@ -5,6 +5,10 @@ $('.ui.dropdown')
 // $('.mini.modal')
 //     .modal('show');
 
+//MESSAGE ;; untuk mengaktifkan radio button
+$('.ui.radio.checkbox')
+  .checkbox();
+
 // MESSAGE :: saat ada message/notification
 $('.message')
     .transition('set looping')

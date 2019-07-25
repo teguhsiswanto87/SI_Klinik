@@ -1,60 +1,60 @@
 <?php
 
 include "../../../config/functions.php";
+include "../../../model/Pasien.php";
 
 $m = $_GET['m'];
 $act = $_GET['act'];
-$passanger = new Passanger();
+$pasien = new Pasien();
 $conn = dbConnect();
-// input penumpang
-if ($m === 'penumpang' && $act == 'tambah') {
-    $first_name = $conn->real_escape_string(my_inputformat(anti_injection($_POST['first_name']), 1));
-    $last_name = $conn->real_escape_string(my_inputformat(anti_injection($_POST['last_name']), 1));
-    $born = $conn->real_escape_string(my_inputformat(anti_injection($_POST['born']), 0));
-    $address = $conn->real_escape_string(my_inputformat(anti_injection($_POST['address']), 1));
-    $city = $conn->real_escape_string(my_inputformat(anti_injection($_POST['city']), 1));
-    $zip = $conn->real_escape_string(my_inputformat(anti_injection($_POST['zip']), 0));
-    $state = $conn->real_escape_string(my_inputformat(anti_injection($_POST['state']), 1));
-    $phone = $conn->real_escape_string(my_inputformat(anti_injection($_POST['phone']), 0));
-    $email = $conn->real_escape_string(my_inputformat(anti_injection($_POST['email']), 0));
-    $password = $conn->real_escape_string(my_inputformat(anti_injection($_POST['password']), 0));
+// input pasien
+if ($m == 'pasien' && $act == 'tambah') {
 
-//    $insert = $passanger->insertPassanger(20, $first_name, $last_name, $born, $address, $city, $zip, $state, $phone, $email, sha1($password));
-    $insert = $passanger->insertPassanger($first_name, $state, $email, sha1($password), $last_name, $address, $city, $zip, $phone, $born);
+    $hasil = $pasien->getLastItemPasien(); //dapatkan data id_petugas yang terakhir
+    if (empty($hasil)) {
+        $id_pasien = 'ps0001';
+    } else {
+        $ambilAngka = substr($hasil['id_pasien'], 3);
+        $incrementAngka = (int)$ambilAngka + 1;
+        // membuat angka 4 menjadi 0004 / 34 -> 0034 / 234 -> 0234
+        if (strlen($incrementAngka) == 1) {
+            $nol = '000';
+        } elseif (strlen($incrementAngka) == 2) {
+            $nol = '00';
+        } elseif (strlen($incrementAngka) == 3) {
+            $nol = '0';
+        } else {
+            $nol = '';
+        }
+        $id_pasien = "dr$nol$incrementAngka";
+    }
 
+    $nama_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_pasien']), 1));
+    
+
+    $insert = $pasien->insertPasien($id_pasien, $nama_pasien);
     if ($insert) {
         header("location: ../../media.php?m=" . $m);
     } else {
         echo "Gagal Memasukkan data $m ";
-        echo "<br>
-            born : $born
-        ";
     }
-} elseif ($m == 'penumpang' && $act == 'update') {
-    $id = $conn->real_escape_string(my_inputformat(anti_injection($_POST['id']), 0));
-    $first_name = $conn->real_escape_string(my_inputformat(anti_injection($_POST['first_name']), 1));
-    $last_name = $conn->real_escape_string(my_inputformat(anti_injection($_POST['last_name']), 1));
-    $born = $conn->real_escape_string(my_inputformat(anti_injection($_POST['born']), 0));
-    $address = $conn->real_escape_string(my_inputformat(anti_injection($_POST['address']), 1));
-    $city = $conn->real_escape_string(my_inputformat(anti_injection($_POST['city']), 1));
-    $zip = $conn->real_escape_string(my_inputformat(anti_injection($_POST['zip']), 0));
-    $state = $conn->real_escape_string(my_inputformat(anti_injection($_POST['state']), 1));
-    $phone = $conn->real_escape_string(my_inputformat(anti_injection($_POST['phone']), 0));
-    $email = $conn->real_escape_string(my_inputformat(anti_injection($_POST['email']), 0));
+} elseif ($m == 'pasien' && $act == 'update') {
+    $id_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['id']), 0));
+    $nama_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_pasien']), 1));
 
-    $update = $passanger->updatePassanger($id, $first_name, $last_name, $born, $address, $city, $zip, $state, $phone, $email);
+    $update = $pasien->updatePasien($id_pasien, $nama_pasien);
     if ($update) {
         header("location: ../../media.php?m=" . $m);
     } else {
         echo "Gagal memperbarui data $m";
     }
-} elseif ($m == 'penumpang' && $act == 'hapus') {
-    $delete = $passanger->deletePassanger($_GET['id']);
+} elseif ($m == 'pasien' && $act == 'hapus') {
+    $delete = $pasien->deletePasien($_GET['id']);
     if ($delete) {
         header("location: ../../media.php?m=" . $m);
     } else {
         echo "Gagal menghapus data $m ID=$_GET[id]";
     }
 } else {
-    echo "gagal berak_si";
+    echo "gagal beraksi";
 }
