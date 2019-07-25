@@ -36,7 +36,6 @@ create table petugas_administrasi(
     id_petugas varchar(6) primary key,
     id_pengguna varchar(6),
     nama_pegawai varchar(50) not null,
-    nama varchar(50) not null,
     alamat varchar(100),
     kontak varchar(13),
 
@@ -118,13 +117,14 @@ insert into module(module_id, module_name, link, icon, active, access_director, 
 (2, "module","?m=module","clone","Y","Y","Y","Y"),
 (3, "pasien","?m=pasien","users","Y","Y","Y","Y"),
 (4, "pengguna","?m=pengguna","user circle outline","Y","Y","Y","Y"),
-(5, "petugas","?m=petugas","user outline","Y","Y","Y","Y"),
-(6, "dokter","?m=dokter","heartbeat","Y","Y","Y","Y"),
-(7, "resep","?m=resep","first aid","Y","Y","Y","Y"),
-(8, "pemeriksaan","?m=pemeriksaan","check square outline","Y","Y","Y","Y"),
-(9, "pembayaran","?m=pembayaran","dollar sign","Y","Y","Y","Y"),
-(10, "laporan","?m=laporan","book","Y","Y","Y","Y"),
-(null, "pertanyaan","?m=pertanyaan","question circle orange","Y","Y","Y","Y");
+(5, "direktur","?m=direktur","user secret","Y","Y","Y","Y"),
+(6, "petugas","?m=petugas","user outline","Y","Y","Y","Y"),
+(7, "dokter","?m=dokter","heartbeat","Y","Y","Y","Y"),
+(8, "resep","?m=resep","first aid","Y","Y","Y","Y"),
+(9, "pemeriksaan","?m=pemeriksaan","check square outline","Y","Y","Y","Y"),
+(10, "pembayaran","?m=pembayaran","dollar sign","Y","Y","Y","Y"),
+(11, "laporan","?m=laporan","book","Y","Y","Y","Y"),
+(12, "pertanyaan","?m=pertanyaan","question circle orange","Y","Y","Y","Y");
 
 -- Insert Pengguna => untuk login admin
 insert into pengguna(id_pengguna, username, password, status, url_photo) values
@@ -139,6 +139,8 @@ insert into pengguna(id_pengguna, username, password, status, url_photo) values
 -- (null, 'brigita',sha1('brigita'),'Brigita Julia PNG','https://akademik.unikom.ac.id/foto/10117074.jpg'),
 -- (null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
-
--- insert into petugas_administrasi(id_petugas, id_pengguna, nama_pegawai, nama, alamat, kontak) values ;
--- ()
+-- ### INSERT DATA PETUGAS_ADMINISTRASI
+insert into petugas_administrasi(id_petugas, nama_pegawai, alamat, kontak) values
+('pa0001', 'nuri gendis','jl.kebangsaan timur tengah no.13','089978675645'),
+('pa0002', 'akmarina','jl.sariwates indah no.17','089566677789'),
+('pa0003', 'sukmara jajang','jl.layang no.1','08111178900');

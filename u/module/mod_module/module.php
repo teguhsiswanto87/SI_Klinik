@@ -75,7 +75,7 @@ switch ($act) {
                         </td>
                         <td class='center aligned'>
                             <a href='?m=$m&act=edit&id=$data[module_id]'>Edit</a> | ";
-                        if ($data['module_id'] > 10) {
+                        if ($data['module_id'] > 11) {
                             echo "<a id='btn-delete' style='cursor: pointer;'
                                      onclick='deleteData(`$aksi?m=$m&act=hapus&id=$data[module_id]`,
                                                             `$data[module_id]`,

@@ -53,7 +53,7 @@ function getListModule($status)
 }
 
 
-class LoginCheck
+class LoginCheck // validasi untuk proses loginl
 {
     function showError($message)
     {
@@ -100,7 +100,7 @@ class LoginCheck
     }
 }
 
-class InfoCheck
+class InfoCheck //untuk notofikasi CRUD
 {
     function showInfo($title = "", $message = "")
     {

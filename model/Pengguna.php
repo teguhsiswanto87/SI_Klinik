@@ -46,7 +46,7 @@ class Pengguna
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
             $sql = "INSERT INTO pengguna(username, password, nama)
-VALUES('$username','$password','$nama')";
+                        VALUES('$username','$password','$nama')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }

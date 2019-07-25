@@ -51,36 +51,36 @@ class Pasien
             if ($res) return true; else return false;
         }
 
-}
+    }
 
 // update data pasien
-function updatePasien($id_pasien, $username, $nama, $id_session)
-{
-    $conn = dbConnect();
-    if ($conn->connect_errno == 0) {
-        $sql = "UPDATE pasien SET username='$username',nama='$nama' 
+    function updatePasien($id_pasien, $username, $nama, $id_session)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "UPDATE pasien SET username='$username',nama='$nama' 
                     WHERE id_pasien='$id_pasien' AND id_session='$id_session' ";
-        $res = $conn->query($sql);
+            $res = $conn->query($sql);
 
-        if ($res) return true; else return false;
+            if ($res) return true; else return false;
 
-    } else {
-        return false;
+        } else {
+            return false;
+        }
     }
-}
 
 //delete 1 data pasien
-function deletePasien($id_pasien)
-{
-    $conn = dbConnect();
-    if ($conn->connect_errno == 0) {
-        $sql = "DELETE FROM pasien WHERE id_pasien='$id_pasien'";
-        $res = $conn->query($sql);
-        if ($res) return true; else return false;
-    } else {
-        return false;
+    function deletePasien($id_pasien)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "DELETE FROM pasien WHERE id_pasien='$id_pasien'";
+            $res = $conn->query($sql);
+            if ($res) return true; else return false;
+        } else {
+            return false;
+        }
     }
-}
 
 }
 

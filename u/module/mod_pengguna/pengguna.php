@@ -100,7 +100,6 @@ switch ($act) {
                             >
                         </div>
                     </div>
-                    <div class="ui error message"></div>
                     <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">Tambahkan
                     </button>
                 </form>
