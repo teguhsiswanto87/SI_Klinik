@@ -64,7 +64,7 @@ class Direktur
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO direktur(id_direktur, nama_direktur)
+            $sql = "INSERT INTO direktur_utama(id_direktur, nama_direktur)
                         VALUES('$id_direktur','$nama_direktur')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
@@ -77,7 +77,7 @@ class Direktur
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE direktur SET nama_direktur='$nama_direktur' 
+            $sql = "UPDATE direktur_utama SET nama_direktur='$nama_direktur' 
                     WHERE id_direktur='$id_direktur' ";
             $res = $conn->query($sql);
 
