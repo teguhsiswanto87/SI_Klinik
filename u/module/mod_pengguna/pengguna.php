@@ -8,34 +8,35 @@ $act = isset($_GET['act']) ? $_GET['act'] : '';
 $pengguna = new Pengguna();
 
 switch ($act) {
-    default:
-        echo "
-        <div class='ui stackable grid container'>
-            <div class='eleven wide column'>
-                <h2 class=''>Tampil Pengguna</h2>
-            </div>  
-            <div class='four wide column'>
-                <a onclick=window.location.href='?m=$m&act=tambah'; class='ui basic button right floated'>
-                <i class='icon plus'></i>
+    default: ?>
+        <div class="ui stackable grid container">
+            <div class="eleven wide column">
+                <h2 class="">Tampil Pengguna</h2>
+            </div>
+            <div class="four wide column">
+                <a onclick=window.location.href="<?php echo "?m=$m&act=tambah"; ?>"
+                   class="ui basic button right floated">
+                    <i class="icon plus"></i>
                     Tambah Pengguna
                 </a>
             </div>
-            <div class='fifteen wide column'>
-                <table class='ui selectable very basic table'>
-                <thead>
-                <tr>
-                <th class='one wide'>No</th>
-                <th class='one wide'>Username</th>
-                <th class='four wide'>Status</th>
-                <th class='two wide'>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>";
-        $session = session_id();
-        $no = 1;
-        $dataUsers = $pengguna->getListPengguna();
-        foreach ($dataUsers as $data) {
-            echo "<tr>
+            <div class="fifteen wide column">
+                <table class="ui selectable very basic table">
+                    <thead>
+                    <tr>
+                        <th class="one wide">No</th>
+                        <th class="one wide">Username</th>
+                        <th class="four wide">Status</th>
+                        <th class="two wide">Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $session = session_id();
+                    $no = 1;
+                    $dataUsers = $pengguna->getListPengguna();
+                    foreach ($dataUsers as $data) {
+                        echo "<tr>
                 <td>$no</td>
                 <td>$data[username]</td>
                 <td>$data[status]</td>
@@ -46,14 +47,14 @@ switch ($act) {
                     </a>
                 </td>
                 </tr>";
-            $no++;
-        }
-        echo "
-                </tbody>
+                        $no++;
+                    } ?>
+                    </tbody>
                 </table>
             </div>
         </div>
-            ";
+
+        <?php
         break;
 
     case "tambah": ?>
@@ -71,20 +72,16 @@ switch ($act) {
         <div class="ui stackable grid container">
             <div class="eight wide column">
                 <h2 class="ui header"></h2>
-                <form class="ui form" method="POST" name="formPengguna" onsubmit="return penggunaValidation('tambah')"
-                      action=<?php echo "$aksi?m=$m&act=tambah" ?>
-                >
+                <form class="ui form" method="POST" name="formPengguna"
+                      onsubmit="return penggunaValidation('tambah')"
+                      action="<?php echo "$aksi?m=$m&act=tambah" ?>">
                     <div class="ui grid">
                         <div class="field column wide eight" id="usernameField">
                             <label>Username</label>
-                            <input type="text" name="username" placeholder="Username" minlength="4" maxlength="50"
+                            <input type="text" name="username" placeholder="Username"
+                                   maxlength="50"
                                    id="username" autofocus>
                         </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <label>Nama Lengkap</label>
-                        <input type="text" name="nama" placeholder="Nama Lengkap">
                     </div>
                     <div class="ui grid">
                         <div class="field eight wide column" id="passwordId">
@@ -95,12 +92,14 @@ switch ($act) {
                         </div>
                         <div class="field eight wide column" id="confirmPasswordId">
                             <label>Konfirmasi Password</label>
-                            <input type="password" name="confirmPassword" placeholder="password" id="confirmPassword"
+                            <input type="password" name="confirmPassword" placeholder="password"
+                                   id="confirmPassword"
                                    onkeyup="checkPass()"
                             >
                         </div>
                     </div>
-                    <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">Tambahkan
+                    <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
+                        Tambahkan
                     </button>
                 </form>
             </div>
@@ -144,11 +143,13 @@ switch ($act) {
                     <input type="text" name="nama" placeholder="$data[nama]" value="$data[nama]" maxlength="50">
                 </div>
                 <div class="ui error message"></div>
-                <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">Perbarui
+                <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
+                    Perbarui
                 </button>
                 </form>
                 <br>
-                <a href="" style="border-bottom: 1px dotted currentColor; " title="belum cuy"> Ganti Password </a>
+                <a href="" style="border-bottom: 1px dotted currentColor; " title="belum cuy"> Ganti
+                    Password </a>
             </div>
 
         </div>
