@@ -42,7 +42,7 @@ create table petugas_administrasi(
     constraint fk_pa_pengguna foreign key(id_pengguna) references pengguna(id_pengguna)
 
 );
--- 4 // id_dokterr -> dk0001
+-- 4 // id_dokterr -> dk0001 || spesalisasi :: tht, gigi & mulut, anak, umum || jadwal = ?
 create table dokter(
     id_dokter varchar(6) primary key,
     id_pengguna varchar(6),
@@ -117,7 +117,7 @@ insert into module(module_id, module_name, link, icon, active, access_director, 
 (2, "module","?m=module","clone","Y","Y","Y","Y"),
 (3, "pasien","?m=pasien","users","Y","Y","Y","Y"),
 (4, "pengguna","?m=pengguna","user circle outline","Y","Y","Y","Y"),
-(5, "direktur","?m=direktur","user secret","Y","Y","Y","Y"),
+(5, "direktur","?m=direktur","user circle","Y","Y","Y","Y"),
 (6, "petugas","?m=petugas","user outline","Y","Y","Y","Y"),
 (7, "dokter","?m=dokter","heartbeat","Y","Y","Y","Y"),
 (8, "resep","?m=resep","first aid","Y","Y","Y","Y"),
@@ -144,3 +144,9 @@ insert into petugas_administrasi(id_petugas, nama_pegawai, alamat, kontak) value
 ('pa0001', 'nuri gendis','jl.kebangsaan timur tengah no.13','089978675645'),
 ('pa0002', 'akmarina','jl.sariwates indah no.17','089566677789'),
 ('pa0003', 'sukmara jajang','jl.layang no.1','08111178900');
+
+-- ### INSERT DATA DOKTER
+insert into dokter(id_dokter, nama_dokter, spesialisasi, jadwal) values
+('dk0001', 'dr. slamet','dokter umum','senin'),
+('dk0002', 'dr. firmino','dokter gigi','minggu'),
+('dk0003', 'dr. firmino','dokter anak','jumat');

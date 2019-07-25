@@ -18,6 +18,10 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
             include "module/mod_petugas/petugas.php";
         }
+    } elseif ($_GET['m'] == 'dokter') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
+            include "module/mod_dokter/dokter.php";
+        }
     } else {
         echo "Modul <b>$_GET[m]</b> sedang dibuat";
     }
