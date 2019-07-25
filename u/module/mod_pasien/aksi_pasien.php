@@ -6,7 +6,7 @@ include "../../../model/Pasien.php";
 $m = $_GET['m'];
 $act = $_GET['act'];
 $pasien = new Pasien();
-$conn = dbConnect();
+$conn = dbConnect(); 
 // input pasien
 if ($m == 'pasien' && $act == 'tambah') {
 
@@ -26,7 +26,7 @@ if ($m == 'pasien' && $act == 'tambah') {
         } else {
             $nol = '';
         }
-        $id_pasien = "dr$nol$incrementAngka";
+        $id_pasien = "ps$nol$incrementAngka";
     }
 
     $nama_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_pasien']), 1));
