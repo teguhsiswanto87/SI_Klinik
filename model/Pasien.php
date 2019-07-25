@@ -41,12 +41,12 @@ class Pasien
     }
 
 // masukkan data Pasien
-    function insertPasien($nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
+    function insertPasien($id_pasien,$nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO pasien(username, password, nama)
-                    VALUES('$username','$password','$nama')";
+            $sql = "INSERT INTO pasien(id_pasien,nama_pasien,tempat_lahir,tgl_lahir,jenis_kelamin, kontak)
+                    VALUES('$id_pasien','$nama_pasien', '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$alamat', '$kontak')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }
@@ -54,12 +54,13 @@ class Pasien
     }
 
 // update data pasien
-    function updatePasien($id_pasien, $username, $nama, $id_session)
+    function updatePasien($id_pasien,$nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE pasien SET username='$username',nama='$nama' 
-                    WHERE id_pasien='$id_pasien' AND id_session='$id_session' ";
+            $sql = "UPDATE pasien SET id_pasien='$id_pasien',nama_pasien='$nama_pasien',tempat_lahir='$tempat_lahir',
+                                     tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',alamat='$alamat',kontak='$kontak'
+                    WHERE id_pasien='$id_pasien' AND nama_pasien='$nama_pasien' ";
             $res = $conn->query($sql);
 
             if ($res) return true; else return false;
