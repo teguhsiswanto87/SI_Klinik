@@ -21,7 +21,7 @@ create table pasien(
     kontak varchar(13)
 );
 
--- 2 // id_pengguna -> pg0001
+-- 2 // id_pengguna -> pg0001 || status :: dokter, petugas, atau direktur
 create table pengguna(
     id_pengguna varchar(6) primary key,
     username varchar(50) not null,

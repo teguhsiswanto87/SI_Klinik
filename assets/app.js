@@ -74,21 +74,31 @@ function loginAuth() {
     var username = document.formLogin.username.value.trim();
     var password = document.formLogin.password.value.trim();
 
-    if (/\s/.test(username)) {
-        alert("Username tidak boleh mengandung spasi");
-        document.formLogin.username.focus();
-        return false;
-    }
     if (username.length < 4) {
         alert("Username minimal 4 karakter"); //kalau mau pakai alert
         // window.location.href = "index.php?error=7"; //ini pakai ?error=
         document.formLogin.username.focus();
         return false;
     }
+
+    var regex = /^[A-Za-z0-9]+$/;
+    if (!regex.test(username)) {
+        alert("Username harus berupa huruf dan angka saja, tanpa spasi");
+        document.formUsers.username.focus();
+        return false;
+    }
+
     if (password.length < 4) {
         alert("Password minimal 4 karakter");
         // window.location.href = "index.php?error=7";
         document.formLogin.password.focus();
+        return false;
+    }
+
+    var regex = /^[A-Za-z0-9]+$/;
+    if (!regex.test(password)) {
+        alert("Password harus berupa huruf dan angka saja, tanpa spasi");
+        document.formUsers.username.focus();
         return false;
     }
 
