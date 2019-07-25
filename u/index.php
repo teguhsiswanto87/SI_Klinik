@@ -39,13 +39,11 @@
                       onsubmit="return loginAuth()">
                     <div class="field">
                         <label>Username*</label>
-                        <input type="text" name="username" placeholder="Username" maxlength="50" minlength="4" autofocus
-                        >
+                        <input type="text" name="username" placeholder="Username" maxlength="50" autofocus>
                     </div>
                     <div class="field">
                         <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" maxlength="50" minlength="4"
-                        >
+                        <input type="password" name="password" placeholder="Password" maxlength="50">
                     </div>
                     <div class="field">
 

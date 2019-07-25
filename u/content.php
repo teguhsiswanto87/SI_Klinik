@@ -7,8 +7,20 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "module/mod_pengguna/pengguna.php";
         }
     } elseif ($_GET['m'] == 'module') {
-        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin         ') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
             include "module/mod_module/module.php";
+        }
+    } elseif ($_GET['m'] == 'pasien') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
+            include "module/mod_pasien/pasien.php";
+        }
+    } elseif ($_GET['m'] == 'petugas') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
+            include "module/mod_petugas/petugas.php";
+        }
+    } elseif ($_GET['m'] == 'dokter') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
+            include "module/mod_dokter/dokter.php";
         }
     } else {
         echo "Modul <b>$_GET[m]</b> sedang dibuat";

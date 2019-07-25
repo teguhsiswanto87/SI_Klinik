@@ -25,11 +25,21 @@ function my_inputformat($str, $space)
 }
 
 // get data from Module (store in side bar administrator web)
-function getListModule()
+function getListModule($status)
 {
+
+    //berdasarkan hak akses module (ini berdasarkan nama dari kolom tabel module)
+    if ($status == 'dirut') {
+        $akses = 'access_director';
+    } else if ($status == 'dokter') {
+        $akses = 'access_doctor';
+    } else {
+        $akses = 'access_admin';
+    }
+
     $db = dbConnect();
     if ($db->connect_errno == 0) {
-        $res = $db->query("SELECT * FROM module WHERE active='Y' ");
+        $res = $db->query("SELECT * FROM module WHERE active='Y' AND $akses='Y' ");
         if ($res) {
             $data = $res->fetch_all(MYSQLI_ASSOC);
             $res->free();
@@ -43,7 +53,7 @@ function getListModule()
 }
 
 
-class LoginCheck
+class LoginCheck // validasi untuk proses loginl
 {
     function showError($message)
     {
@@ -90,7 +100,7 @@ class LoginCheck
     }
 }
 
-class InfoCheck
+class InfoCheck //untuk notofikasi CRUD
 {
     function showInfo($title = "", $message = "")
     {
