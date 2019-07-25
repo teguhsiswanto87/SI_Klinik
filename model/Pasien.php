@@ -40,8 +40,27 @@ class Pasien
         }
     }
 
+// get 1 last data to check id_pasien
+    function getLastItemPasien()
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "SELECT id_pasien FROM pasien ORDER BY id_pasien DESC LIMIT 1";
+            $res = $conn->query($sql);
+            $data = $res->fetch_assoc();
+            $row_cnt = $res->num_rows;
+
+            if ($row_cnt == 1) {
+                return $data;
+            }
+
+        } else {
+            return false;
+        }
+    }
+
 // masukkan data Pasien
-    function insertPasien($id_pasien,$nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
+    function insertPasien($id_pasien, $nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
@@ -54,7 +73,7 @@ class Pasien
     }
 
 // update data pasien
-    function updatePasien($id_pasien,$nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
+    function updatePasien($id_pasien, $nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {

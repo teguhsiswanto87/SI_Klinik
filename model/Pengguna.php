@@ -41,12 +41,12 @@ class Pengguna
     }
 
 // masukkan data Pengguna
-    function insertPengguna($username, $password, $nama)
+    function insertPengguna($id_pengguna, $username, $password, $status, $url_photo)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO pengguna(username, password, nama)
-                        VALUES('$username','$password','$nama')";
+            $sql = "INSERT INTO pengguna(id_pengguna, username, password, status, url_photo)
+                        VALUES('$id_pengguna','$username','$password','$status','$url_photo')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }
@@ -54,11 +54,28 @@ class Pengguna
     }
 
 // update data pengguna
-    function updatePengguna($id_pengguna, $username, $nama, $id_session)
+    function updatePengguna($id_pengguna, $username, $url_photo, $id_session)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE pengguna SET username='$username',nama='$nama' 
+            $sql = "UPDATE pengguna SET username='$username',
+                                        url_photo='$url_photo' 
+                    WHERE id_pengguna='$id_pengguna' AND id_session='$id_session' ";
+            $res = $conn->query($sql);
+
+            if ($res) return true; else return false;
+
+        } else {
+            return false;
+        }
+    }
+
+// update data pengguna
+    function updatePassword($id_pengguna, $password, $id_session)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "UPDATE pengguna SET password='$password'
                     WHERE id_pengguna='$id_pengguna' AND id_session='$id_session' ";
             $res = $conn->query($sql);
 
