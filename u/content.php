@@ -22,7 +22,12 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
             include "module/mod_dokter/dokter.php";
         }
-    } else {
+    } elseif ($_GET['m'] == 'direktur') {
+        if ($_SESSION['status'] == 'dirut' || $_SESSION['status'] == 'admin') {
+            include "module/mod_direktur/direktur.php";
+        }
+    }
+     else {
         echo "Modul <b>$_GET[m]</b> sedang dibuat";
     }
 }
