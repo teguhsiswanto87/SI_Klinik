@@ -1,6 +1,9 @@
 <?php
 // call Class Pengguna
 include "../model/Pengguna.php";
+include "../model/Petugas.php";
+include "../model/Dokter.php";
+include "../model/Direktur.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_pengguna/aksi_pengguna.php";
@@ -76,12 +79,60 @@ switch ($act) {
                       onsubmit="return penggunaValidation('tambah')"
                       action="<?php echo "$aksi?m=$m&act=tambah" ?>">
                     <div class="ui grid">
-                        <div class="field column wide eight" id="usernameField">
-                            <label>Username</label>
-                            <input type="text" name="username" placeholder="Username"
-                                   maxlength="50"
-                                   id="username" autofocus>
+                        <div class="field column wide eight">
+                            <label>Jenis Jabatan</label>
+                            <select name="cb_status_pengguna" onchange="return beriAkses(this)">
+                                <option>--Pilih Jabatan--</option>
+                                <option value="petugas">Petugas Administrasi</option>
+                                <option value="dokter">Dokter</option>
+                                <option value="dirut">Direktur</option>
+                            </select>
                         </div>
+                        <div class="field column wide eight disabled" id="cb_fields">
+                            <label>Beri akses kepada : </label>
+                            <select name="cb_akses_kepada" style="text-transform: capitalize; display: none;" id="cbDokter">
+                                <?php
+                                $dokter = new Dokter();
+                                $dataDokter = $dokter->getListDokter();
+                                echo "<option>--Pilih Dokter--</option>";
+                                foreach ($dataDokter as $dok) {
+                                    echo "<option value='$dok[id_dokter]'>$dok[nama_dokter]</option>";
+                                }
+
+                                ?>
+                            </select>
+                            <select name="cb_akses_kepada" style="text-transform: capitalize; display: none;" id="cbDirektur">
+                                <?php
+                                $direktur = new Direktur();
+                                $dataDirektur = $direktur->getListDirektur();
+                                echo "<option>--Pilih Direktur--</option>";
+                                foreach ($dataDirektur as $dir) {
+                                    echo "<option value='$dir[id_direktur]'>$dir[nama_direktur]</option>";
+                                }
+
+                                ?>
+                            </select>
+                            <select name="cb_akses_kepada" style="text-transform: capitalize;" id="cbPetugas">
+                                <?php
+                                $petugas = new Petugas();
+                                $dataPetugas = $petugas->getListPetugas();
+                                echo "<option>--Pilih Petugas--</option>";
+                                foreach ($dataPetugas as $dp) {
+                                    echo "<option value='$dp[id_petugas]'>$dp[nama_pegawai]</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <h4 class="ui horizontal divider header">
+                        <i class="key icon"></i>
+                        Akun untuk login
+                    </h4>
+                    <div class="field column wide eight" id="usernameField">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Username"
+                               maxlength="50"
+                               id="username" autofocus>
                     </div>
                     <div class="ui grid">
                         <div class="field eight wide column" id="passwordId">
