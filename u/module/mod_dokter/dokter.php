@@ -89,8 +89,12 @@ switch ($act) {
                       action=<?php echo "$aksi?m=$m&act=tambah" ?>>
                     <div class="field">
                         <label>Nama Lengkap</label>
-                        <input type="text" name="nama_dokter" placeholder="Nama Lengkap" required>
+                        <div class="ui labeled input">
+                            <div class="ui label">dr.</div>
+                            <input type="text" name="nama_dokter" placeholder="Nama Lengkap" required>
+                        </div>
                     </div>
+
                     <div class="ui grid">
                         <div class="field eight wide column" id="passwordId">
                             <label>Spesialisasi</label>
@@ -133,8 +137,11 @@ switch ($act) {
                     <input type="hidden" name="id" value="<?php echo $data['id_dokter']; ?>">
                     <div class="field">
                         <label>Nama Lengkap</label>
-                        <input type="text" name="nama_dokter" placeholder="<?php echo $data['nama_dokter']; ?>"
-                               value="<?php echo $data['nama_dokter']; ?>" required>
+                        <div class="ui labeled input">
+                            <div class="ui label">dr.</div>
+                            <input type="text" name="nama_dokter" placeholder="<?php echo $data['nama_dokter']; ?>"
+                                   value="<?php echo substr($data['nama_dokter'], 3); ?>" required>
+                        </div>
                     </div>
                     <div class="ui grid">
                         <div class="field eight wide column" id="passwordId">

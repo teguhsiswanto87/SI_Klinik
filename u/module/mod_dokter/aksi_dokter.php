@@ -33,7 +33,7 @@ if ($m == 'dokter' && $act == 'tambah') {
     $spesialisasi = $conn->real_escape_string(my_inputformat(anti_injection($_POST['spesialisasi']), 1));
     $jadwal = $conn->real_escape_string(my_inputformat(anti_injection($_POST['jadwal']), 0));
 
-    $insert = $dokter->insertDokter($id_dokter, $nama_dokter, $spesialisasi, $jadwal);
+    $insert = $dokter->insertDokter($id_dokter, 'dr.' . $nama_dokter, $spesialisasi, $jadwal);
     if ($insert) {
         header("location: ../../media.php?m=" . $m);
     } else {
@@ -45,7 +45,7 @@ if ($m == 'dokter' && $act == 'tambah') {
     $spesialisasi = $conn->real_escape_string(my_inputformat(anti_injection($_POST['spesialisasi']), 1));
     $jadwal = $conn->real_escape_string(my_inputformat(anti_injection($_POST['jadwal']), 0));
 
-    $update = $dokter->updateDokter($id_dokter, $nama_dokter, $spesialisasi, $jadwal);
+    $update = $dokter->updateDokter($id_dokter, 'dr.' . $nama_dokter, $spesialisasi, $jadwal);
     if ($update) {
         header("location: ../../media.php?m=" . $m);
     } else {
