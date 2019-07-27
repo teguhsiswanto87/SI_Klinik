@@ -3,7 +3,7 @@
 function dbConnect()
 {
 //    connect DB - nya disesuaikan ya... dgn PC kalian
-    $db = new mysqli("localhost", "root", "siswanto123321", "si_klinik");
+    $db = new mysqli("localhost", "root", "", "si_klinik");
     return $db;
 }
 
