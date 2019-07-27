@@ -5,7 +5,11 @@ $('.ui.dropdown')
 // $('.mini.modal')
 //     .modal('show');
 
-$('tanggal_lahir').datePicker();
+// $('tanggal_lahir').datePicker();
+
+//MESSAGE ;; untuk mengaktifkan radio button
+$('.ui.radio.checkbox')
+    .checkbox();
 
 // MESSAGE :: saat ada message/notification
 $('.message')

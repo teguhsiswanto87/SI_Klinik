@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65ca78c1-23b7-4167-a5af-807ffd00ef01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Direktur.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Direktur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/login_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/login_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_direktur/direktur.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_direktur/direktur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_pengguna/aksi_pengguna.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pengguna/aksi_pengguna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_pengguna/pengguna.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pengguna/pengguna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_petugas/petugas.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_petugas/petugas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/module/mod_pasien/aksi_pasien.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pasien/aksi_pasien.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,24 +98,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="135">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -137,13 +126,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/u/module/mod_direktur/direktur.php">
+        <entry file="file://$PROJECT_DIR$/config/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="75">
+              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
               <folding>
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -210,7 +199,6 @@
         <option value="$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php" />
         <option value="$PROJECT_DIR$/model/si_klinik.sql" />
         <option value="$PROJECT_DIR$/u/index.php" />
-        <option value="$PROJECT_DIR$/config/functions.php" />
         <option value="$PROJECT_DIR$/model/Pasien.php" />
         <option value="$PROJECT_DIR$/u/module/mod_petugas/aksi_petugas.php" />
         <option value="$PROJECT_DIR$/model/Dokter.php" />
@@ -227,8 +215,9 @@
         <option value="$PROJECT_DIR$/u/login_check.php" />
         <option value="$PROJECT_DIR$/u/header.php" />
         <option value="$PROJECT_DIR$/u/content.php" />
-        <option value="$PROJECT_DIR$/assets/app.js" />
         <option value="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" />
+        <option value="$PROJECT_DIR$/config/functions.php" />
+        <option value="$PROJECT_DIR$/assets/app.js" />
       </list>
     </option>
   </component>
@@ -357,7 +346,7 @@
       <workItem from="1564058163920" duration="6321000" />
       <workItem from="1564137071873" duration="8334000" />
       <workItem from="1564197298417" duration="18792000" />
-      <workItem from="1564223810837" duration="7596000" />
+      <workItem from="1564223810837" duration="7870000" />
     </task>
     <task id="LOCAL-00001" summary="update supaya module tidak bisa dinonaktifkan">
       <created>1563975906175</created>
@@ -377,13 +366,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147519000" />
+    <option name="totallyTimeSpent" value="147793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="17" width="1370" height="753" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31240544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31240544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -537,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_petugas/petugas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -648,21 +630,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app.js">
+    <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="150">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
+    <entry file="file://$PROJECT_DIR$/config/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="75">
+          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
           <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
