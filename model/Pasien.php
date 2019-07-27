@@ -64,7 +64,7 @@ class Pasien
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO pasien(id_pasien,nama_pasien,tempat_lahir,tgl_lahir,jenis_kelamin, kontak)
+            $sql = "INSERT INTO pasien(id_pasien,nama_pasien,tempat_lahir,tgl_lahir,jenis_kelamin, alamat, kontak)
                     VALUES('$id_pasien','$nama_pasien', '$tempat_lahir', '$tgl_lahir', '$jenis_kelamin', '$alamat', '$kontak')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
@@ -77,9 +77,13 @@ class Pasien
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE pasien SET id_pasien='$id_pasien',nama_pasien='$nama_pasien',tempat_lahir='$tempat_lahir',
-                                     tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',alamat='$alamat',kontak='$kontak'
-                    WHERE id_pasien='$id_pasien' AND nama_pasien='$nama_pasien' ";
+            $sql = "UPDATE pasien SET nama_pasien='$nama_pasien',
+                                      tempat_lahir='$tempat_lahir',
+                                     tgl_lahir='$tgl_lahir',
+                                     jenis_kelamin='$jenis_kelamin',
+                                     alamat='$alamat',
+                                     kontak='$kontak'
+                    WHERE id_pasien='$id_pasien'";
             $res = $conn->query($sql);
 
             if ($res) return true; else return false;

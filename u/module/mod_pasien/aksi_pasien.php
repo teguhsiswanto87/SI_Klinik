@@ -6,7 +6,7 @@ include "../../../model/Pasien.php";
 $m = $_GET['m'];
 $act = $_GET['act'];
 $pasien = new Pasien();
-$conn = dbConnect(); 
+$conn = dbConnect();
 // input pasien
 if ($m == 'pasien' && $act == 'tambah') {
 
@@ -30,9 +30,13 @@ if ($m == 'pasien' && $act == 'tambah') {
     }
 
     $nama_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_pasien']), 1));
-    
+    $tempat_lahir = $conn->real_escape_string(my_inputformat(anti_injection($_POST['tempat_lahir']), 1));
+    $tgl_lahir = $conn->real_escape_string(my_inputformat(anti_injection($_POST['tgl_lahir']), 0));
+    $jenis_kelamin = $conn->real_escape_string(my_inputformat(anti_injection($_POST['jenis_kelamin']), 0));
+    $alamat = $conn->real_escape_string(my_inputformat(anti_injection($_POST['alamat']), 1));
+    $kontak = $conn->real_escape_string(my_inputformat(anti_injection($_POST['kontak']), 0));
 
-    $insert = $pasien->insertPasien($id_pasien, $nama_pasien);
+    $insert = $pasien->insertPasien($id_pasien, $nama_pasien, $tempat_lahir, $tgl_lahir, $jenis_kelamin, $alamat, $kontak);
     if ($insert) {
         header("location: ../../media.php?m=" . $m);
     } else {
@@ -41,8 +45,24 @@ if ($m == 'pasien' && $act == 'tambah') {
 } elseif ($m == 'pasien' && $act == 'update') {
     $id_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['id']), 0));
     $nama_pasien = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_pasien']), 1));
+    $tempat_lahir = $conn->real_escape_string(my_inputformat(anti_injection($_POST['tempat_lahir']), 1));
+    $tgl_lahir = $conn->real_escape_string(my_inputformat(anti_injection($_POST['tgl_lahir']), 0));
+    $jenis_kelamin = $conn->real_escape_string(my_inputformat(anti_injection($_POST['jenis_kelamin']), 0));
+    $alamat = $conn->real_escape_string(my_inputformat(anti_injection($_POST['alamat']), 1));
+    $kontak = $conn->real_escape_string(my_inputformat(anti_injection($_POST['kontak']), 0));
 
-    $update = $pasien->updatePasien($id_pasien, $nama_pasien);
+//    echo "
+//    id_pasien : $id_pasien<br>
+//    nama pasien: $nama_pasien<br>
+//    tempat Lahir: $tempat_lahir<br>
+//    Tanggal Lahir: $tgl_lahir<br>
+//    jenis kelamin: $jenis_kelamin<br>
+//    alamat: $alamat<br>
+//    kontak: $kontak<br>
+//    ";
+//
+    $update = $pasien->updatePasien($id_pasien, $nama_pasien, $tempat_lahir, $tgl_lahir,$jenis_kelamin,$alamat,$kontak);
+
     if ($update) {
         header("location: ../../media.php?m=" . $m);
     } else {

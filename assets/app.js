@@ -4,8 +4,9 @@ $('.ui.dropdown')
 // MODAL :: memunculkan modal
 // $('.mini.modal')
 //     .modal('show');
-
-// $('tanggal_lahir').datePicker();
+// $(function () {
+//     $('#tgl_lahir').datepicker;
+// });
 
 //MESSAGE ;; untuk mengaktifkan radio button
 $('.ui.radio.checkbox')
