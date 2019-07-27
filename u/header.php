@@ -23,7 +23,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             <?php echo "$_SESSION[nama]"; ?>
         </a>
         <a class="item" style="cursor: default; text-transform: capitalize;">
-            <?php echo $_SESSION['status']; ?>
+            <?php
+            if ($_SESSION['status'] == 'dirut') echo "Direktur Utama";
+            ?>
         </a>
         <div class="right menu">
             <a class="ui item" id="btn-logout" type="submit">Logout</a>

@@ -49,6 +49,8 @@ if ($m == 'petugas' && $act == 'tambah') {
     if ($update) {
         header("location: ../../media.php?m=" . $m);
     } else {
+
+
         echo "Gagal memperbarui data $m";
     }
 } elseif ($m == 'petugas' && $act == 'hapus') {

@@ -36,7 +36,10 @@ switch ($act) {
                     foreach ($dataUsers as $data) {
                         echo "<tr>
                 <td>$data[id_direktur]</td>
-                <td>$data[id_pengguna]</td>
+                <td class='center aligned'>";
+                        echo ($data['id_pengguna'] == '') ? "<i class='minus icon'></i>" : "$data[id_pengguna]";
+                        echo "
+                </td>
                 <td>$data[nama_direktur]</td>
                 <td>
                     <a href='?m=$m&act=edit&id=$data[id_direktur]'>Edit</a> | 
@@ -76,7 +79,7 @@ switch ($act) {
                         <label>Nama Lengkap</label>
                         <input type="text" name="nama_direktur" placeholder="Nama Lengkap" required>
                     </div>
-                    
+
                     <button class="ui basic primary button right floated" type="submit" name="btnDirekturAdd">
                         Tambahkan
                     </button>
@@ -112,7 +115,7 @@ switch ($act) {
                         <input type="text" name="nama_direktur" placeholder="<?php echo $data['nama_direktur']; ?>"
                                value="<?php echo $data['nama_direktur']; ?>" required>
                     </div>
-                    
+
                     <button class="ui basic primary button right floated" type="submit" name="btnDirekturAdd">
                         Perbarui
                     </button>

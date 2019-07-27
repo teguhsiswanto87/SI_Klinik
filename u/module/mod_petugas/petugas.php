@@ -28,6 +28,7 @@ switch ($act) {
                         <th class="two wide">Nama Pegawai</th>
                         <th class="four wide">Alamat</th>
                         <th class="two wide">Kontak</th>
+                        <th class="one wide">Akses Pengguna</th>
                         <th class="two wide">Aksi</th>
                     </tr>
                     </thead>
@@ -41,6 +42,12 @@ switch ($act) {
                 <td>$data[nama_pegawai]</td>
                 <td>$data[alamat]</td>
                 <td>$data[kontak]</td>
+                <td class='center aligned'>";
+                        if ($data['id_pengguna'] != "") {
+                            echo "<i class='checkmark green icon'></i>";
+                        }
+                        echo "
+                </td>
                 <td>
                     <a href='?m=$m&act=edit&id=$data[id_petugas]'>Edit</a> | 
                     <a href='$aksi?m=$m&act=hapus&id=$data[id_petugas]'

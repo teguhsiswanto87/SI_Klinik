@@ -21,6 +21,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+        <!-- Animate CSS [gak jadi]-->
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">-->
 
     <body>
     <div class="ui grid">

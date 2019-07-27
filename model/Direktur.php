@@ -21,12 +21,50 @@ class Direktur
         }
     }
 
+// get data from Direktur but olny not registered in pengguna
+    function getListDirekturAksesPengguna()
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "SELECT * FROM direktur_utama WHERE id_pengguna is null ";
+            $res = $conn->query($sql);
+            if ($res) {
+                $data = $res->fetch_all(MYSQLI_ASSOC);
+                $res->free();
+                return $data;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
 // get 1 data to put in edit form
     function getItemDirektur($id_direktur)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
             $sql = "SELECT * FROM direktur_utama WHERE id_direktur='$id_direktur'";
+            $res = $conn->query($sql);
+            $data = $res->fetch_assoc();
+            $row_cnt = $res->num_rows;
+
+            if ($row_cnt == 1) {
+                return $data;
+            }
+
+        } else {
+            return false;
+        }
+    }
+
+// get 1 data with requirement
+    function getItemDirekturBy($value, $column)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "SELECT * FROM direktur_utama WHERE $column='$value'";
             $res = $conn->query($sql);
             $data = $res->fetch_assoc();
             $row_cnt = $res->num_rows;
@@ -70,6 +108,22 @@ class Direktur
             if ($res) return true; else return false;
         }
 
+    }
+
+// update data direktur
+    function updateDirekturAksesPegguna($id_direktur, $id_pengguna)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "UPDATE direktur_utama SET id_pengguna='$id_pengguna' 
+                    WHERE id_direktur='$id_direktur' ";
+            $res = $conn->query($sql);
+
+            if ($res) return true; else return false;
+
+        } else {
+            return false;
+        }
     }
 
 // update data direktur

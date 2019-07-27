@@ -58,6 +58,48 @@ $('#btn-logout')
 //         }).modal('show')
 //     });
 
+// modul Pengguna :: jika jabatan dipilih maka akan menampilkan daftar nama yang akan diberi akses sesuai dengan jabatannya
+// $(function () {
+//     $('#cbStatusPengguna').change(function () {
+//         $("#cbAksesKepada").hide();
+//     });
+// });
+function beriAkses(jabatan) {
+    if (jabatan.value == 'dokter') {
+        $('#cbDokter').show();
+        $('#cbPetugas').hide();
+        $('#cbDirektur').hide();
+
+        $('#cb_fields').removeClass('disabled');
+
+        $('#cbDokter').attr('name', 'cb_akses_kepada');
+        $('#cbDirektur').removeAttr('name', 'cb_akses_kepada');
+        $('#cbPetugas').removeAttr('name', 'cb_akses_kepada');
+    } else if (jabatan.value == 'petugas') {
+        $('#cbPetugas').show();
+        $('#cbDirektur').hide();
+        $('#cbDokter').hide();
+
+        $('#cb_fields').removeClass('disabled');
+
+        $('#cbPetugas').attr('name', 'cb_akses_kepada');
+        $('#cbDokter').removeAttr('name', 'cb_akses_kepada');
+        $('#cbDirektur').removeAttr('name', 'cb_akses_kepada');
+    } else if (jabatan.value == 'dirut') {
+        $('#cbDirektur').show();
+        $('#cbPetugas').hide();
+        $('#cbDokter').hide();
+
+        $('#cb_fields').removeClass('disabled');
+
+        $('#cbDirektur').attr('name', 'cb_akses_kepada');
+        $('#cbDokter').removeAttr('name', 'cb_akses_kepada');
+        $('#cbPetugas').removeAttr('name', 'cb_akses_kepada');
+    } else {
+        $('#cb_fields').addClass('disabled');
+    }
+}
+
 function deleteData($link, $title = "", $text = "") {
     $('.ui.modal.delete').modal({
         closable: true,
