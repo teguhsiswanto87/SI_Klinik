@@ -9,6 +9,9 @@ $m = $_GET['m'];
 $aksi = "module/mod_pengguna/aksi_pengguna.php";
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 $pengguna = new Pengguna();
+$dokter = new Dokter();
+$petugas = new Petugas();
+$direktur = new Direktur();
 
 switch ($act) {
     default: ?>
@@ -29,7 +32,8 @@ switch ($act) {
                     <tr>
                         <th class="one wide">No</th>
                         <th class="one wide">Username</th>
-                        <th class="four wide">Status</th>
+                        <th class="four wide">Nama</th>
+                        <th class="two wide">Status</th>
                         <th class="two wide">Aksi</th>
                     </tr>
                     </thead>
@@ -42,12 +46,36 @@ switch ($act) {
                         echo "<tr>
                 <td>$no</td>
                 <td>$data[username]</td>
-                <td>$data[status]</td>
-                <td style='display: none' >
-                    <a href='?m=$m&act=edit&id=$data[id_pengguna]'>Edit</a>  
-                    <a href='$aksi?m=$m&act=hapus&id=$data[id_pengguna]'
-                        onclick='return confirm(`Hapus $data[username] ID=$data[id_pengguna]?`);'>Hapus
-                    </a>
+                <td style='text-transform: capitalize;'>";
+                        if ($data['status'] == 'dirut') {
+                            $item = $direktur->getItemDirekturBy($data['id_pengguna'], 'id_pengguna');
+                            echo "$item[nama_direktur]";
+                        } elseif ($data['status'] == 'dokter') {
+                            $item = $dokter->getItemDokterBy($data['id_pengguna'], 'id_pengguna');
+                            echo "$item[nama_dokter]";
+                        } else {
+                            $item = $petugas->getItemPetugasBy($data['id_pengguna'], 'id_pengguna');
+                            echo "$item[nama_pegawai]";
+                        }
+                        echo "
+                </td>
+                <td>";
+                        echo ($data['status'] == 'dirut') ? 'direktur utama' : $data['status'];
+                        echo "
+                </td>
+                <td>
+                    <a href='?m=$m&act=edit&id=$data[id_pengguna]' style='display: none;'>Edit</a>";
+                        if ($data['status'] == 'dirut') {
+
+                        } else {
+
+                            echo "
+                    <a href='$aksi?m=$m&act=hapusakses&id=$data[id_pengguna]&status=$data[status]' style='border-bottom: 1px dotted currentColor; ' 
+                        title='Menghapus akses supaya user tersebut tidak bisa login'
+                        onclick='return confirm(`Hapus akses pengguna dari $data[username] ID=$data[id_pengguna]?`);'>Hapus Akses
+                    </a>";
+                        }
+                        echo "
                 </td>
                 </tr>";
                         $no++;
@@ -88,12 +116,12 @@ switch ($act) {
                                 <option value="dirut">Direktur</option>
                             </select>
                         </div>
-                        <div class="field column wide eight disabled" id="cb_fields">
+                        <div class="field column wide eight" id="cb_fields">
                             <label>Beri akses kepada : </label>
-                            <select name="cb_akses_kepada" style="text-transform: capitalize; display: none;" id="cbDokter">
+                            <select name="" style="text-transform: capitalize; display: none;" id="cbDokter">
                                 <?php
                                 $dokter = new Dokter();
-                                $dataDokter = $dokter->getListDokter();
+                                $dataDokter = $dokter->getListDokterAksesPengguna();
                                 echo "<option>--Pilih Dokter--</option>";
                                 foreach ($dataDokter as $dok) {
                                     echo "<option value='$dok[id_dokter]'>$dok[nama_dokter]</option>";
@@ -101,10 +129,10 @@ switch ($act) {
 
                                 ?>
                             </select>
-                            <select name="cb_akses_kepada" style="text-transform: capitalize; display: none;" id="cbDirektur">
+                            <select name="" style="text-transform: capitalize; display: none;" id="cbDirektur">
                                 <?php
                                 $direktur = new Direktur();
-                                $dataDirektur = $direktur->getListDirektur();
+                                $dataDirektur = $direktur->getListDirekturAksesPengguna();
                                 echo "<option>--Pilih Direktur--</option>";
                                 foreach ($dataDirektur as $dir) {
                                     echo "<option value='$dir[id_direktur]'>$dir[nama_direktur]</option>";
@@ -112,10 +140,10 @@ switch ($act) {
 
                                 ?>
                             </select>
-                            <select name="cb_akses_kepada" style="text-transform: capitalize;" id="cbPetugas">
+                            <select name="" style="text-transform: capitalize;" id="cbPetugas">
                                 <?php
                                 $petugas = new Petugas();
-                                $dataPetugas = $petugas->getListPetugas();
+                                $dataPetugas = $petugas->getListPetugasAksesPengguna();
                                 echo "<option>--Pilih Petugas--</option>";
                                 foreach ($dataPetugas as $dp) {
                                     echo "<option value='$dp[id_petugas]'>$dp[nama_pegawai]</option>";
@@ -175,28 +203,23 @@ switch ($act) {
             <div class="eight wide column">
                 <h2 class="ui header"></h2>
                 <img class="ui small centered circular image" src="<?php $_SESSION['photo'] ?>">
-                <form class="ui form" method="POST" name="formPengguna" onsubmit=\"return penggunaValidation(
-                "update")\"
-                action="$aksi?m=$m&act=update">
-                <div class="ui grid">
-                    <div class="field column wide eight" id="usernameField">
-                        <label>Username</label>
-                        <input type="hidden" value="$data[id_pengguna]" name="id">
-                        <input type="hidden" value="$session" name="id_session">
-                        <input type="text" name="username" placeholder="$data[username]" value="$data[username]"
-                               minlength="4" maxlength="50"
-                               id="username" autofocus>
+                <form class="ui form" method="POST" name="formPengguna" onsubmit="return penggunaValidation('update')"
+                      action="<?php echo "$aksi?m=$m&act=update"; ?>">
+                    <div class="ui grid">
+                        <div class="field column wide eight" id="usernameField">
+                            <label>Username</label>
+                            <input type="hidden" value="<?php echo $data['id_pengguna']; ?>" name="id">
+                            <input type="hidden" value="<?php echo $session; ?>" name="id_session">
+                            <input type="text" name="username"
+                                   placeholder=<?php echo "$data[username]"; ?> value=<?php echo "$data[username]"; ?>
+                                   minlength="4" maxlength="50"
+                                   id="username" autofocus>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="field">
-                    <label>Nama Lengkap</label>
-                    <input type="text" name="nama" placeholder="$data[nama]" value="$data[nama]" maxlength="50">
-                </div>
-                <div class="ui error message"></div>
-                <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
-                    Perbarui
-                </button>
+
+                    <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
+                        Perbarui
+                    </button>
                 </form>
                 <br>
                 <a href="" style="border-bottom: 1px dotted currentColor; " title="belum cuy"> Ganti

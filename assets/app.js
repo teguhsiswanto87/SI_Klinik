@@ -65,17 +65,32 @@ function beriAkses(jabatan) {
         $('#cbDokter').show();
         $('#cbPetugas').hide();
         $('#cbDirektur').hide();
+
         $('#cb_fields').removeClass('disabled');
+
+        $('#cbDokter').attr('name', 'cb_akses_kepada');
+        $('#cbDirektur').removeAttr('name', 'cb_akses_kepada');
+        $('#cbPetugas').removeAttr('name', 'cb_akses_kepada');
     } else if (jabatan.value == 'petugas') {
         $('#cbPetugas').show();
         $('#cbDirektur').hide();
         $('#cbDokter').hide();
+
         $('#cb_fields').removeClass('disabled');
+
+        $('#cbPetugas').attr('name', 'cb_akses_kepada');
+        $('#cbDokter').removeAttr('name', 'cb_akses_kepada');
+        $('#cbDirektur').removeAttr('name', 'cb_akses_kepada');
     } else if (jabatan.value == 'dirut') {
         $('#cbDirektur').show();
         $('#cbPetugas').hide();
         $('#cbDokter').hide();
+
         $('#cb_fields').removeClass('disabled');
+
+        $('#cbDirektur').attr('name', 'cb_akses_kepada');
+        $('#cbDokter').removeAttr('name', 'cb_akses_kepada');
+        $('#cbPetugas').removeAttr('name', 'cb_akses_kepada');
     } else {
         $('#cb_fields').addClass('disabled');
     }
