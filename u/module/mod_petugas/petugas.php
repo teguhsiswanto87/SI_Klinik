@@ -1,6 +1,6 @@
 <?php
 // call Class Petugas
-include "../model/Petugas.php";
+include_once "../model/Petugas.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_petugas/aksi_petugas.php";
