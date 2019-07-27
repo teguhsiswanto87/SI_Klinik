@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65ca78c1-23b7-4167-a5af-807ffd00ef01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="227">
+              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -123,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -214,13 +213,13 @@
         <option value="$PROJECT_DIR$/u/login_check.php" />
         <option value="$PROJECT_DIR$/u/header.php" />
         <option value="$PROJECT_DIR$/u/content.php" />
-        <option value="$PROJECT_DIR$/config/functions.php" />
         <option value="$PROJECT_DIR$/assets/app.js" />
         <option value="$PROJECT_DIR$/model/Pasien.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pasien/aksi_pasien.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" />
         <option value="$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php" />
         <option value="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" />
+        <option value="$PROJECT_DIR$/config/functions.php" />
       </list>
     </option>
   </component>
@@ -349,7 +348,7 @@
       <workItem from="1564058163920" duration="6321000" />
       <workItem from="1564137071873" duration="8334000" />
       <workItem from="1564197298417" duration="18792000" />
-      <workItem from="1564223810837" duration="13388000" />
+      <workItem from="1564223810837" duration="13431000" />
     </task>
     <task id="LOCAL-00001" summary="update supaya module tidak bisa dinonaktifkan">
       <created>1563975906175</created>
@@ -369,7 +368,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153311000" />
+    <option name="totallyTimeSpent" value="153354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="17" width="1370" height="753" extended-state="6" />
@@ -388,7 +387,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32961783" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.32961783" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32643312" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32643312" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32961783" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32961783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -592,17 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/json/json.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -667,8 +655,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="227">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
