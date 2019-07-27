@@ -1,6 +1,6 @@
 <?php
 // call Class Petugas
-include "../model/Direktur.php";
+include_once "../model/Direktur.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_direktur/aksi_direktur.php";
@@ -24,9 +24,10 @@ switch ($act) {
                 <table class="ui selectable very basic table">
                     <thead>
                     <tr>
-                        <th class="one wide">ID_Direktur</th>
-                        <th class="two wide">ID_Pengguna</th>
+                        <th class="one wide">ID Direktur</th>
                         <th class="four wide">Nama_Direktur</th>
+                        <th class="two wide center aligned">Akses Pengguna</th>
+<!--                        <th class="four wide">Aksi</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -36,12 +37,12 @@ switch ($act) {
                     foreach ($dataUsers as $data) {
                         echo "<tr>
                 <td>$data[id_direktur]</td>
+                <td style='text-transform: capitalize;'>$data[nama_direktur]</td>
                 <td class='center aligned'>";
-                        echo ($data['id_pengguna'] == '') ? "<i class='minus icon'></i>" : "$data[id_pengguna]";
+                        echo ($data['id_pengguna'] == '') ? "<i class='minus icon'></i>" : "<i class='checkmark green icon'></i>";
                         echo "
                 </td>
-                <td>$data[nama_direktur]</td>
-                <td>
+                <td style='display: none;'>
                     <a href='?m=$m&act=edit&id=$data[id_direktur]'>Edit</a> | 
                     <a href='$aksi?m=$m&act=hapus&id=$data[id_direktur]'
                         onclick='return confirm(`Hapus $data[nama_direktur] ID=$data[id_direktur]?`);'>Hapus

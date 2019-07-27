@@ -5,6 +5,8 @@ $('.ui.dropdown')
 // $('.mini.modal')
 //     .modal('show');
 
+$('tanggal_lahir').datePicker();
+
 // MESSAGE :: saat ada message/notification
 $('.message')
     .transition('set looping')

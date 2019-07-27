@@ -39,12 +39,17 @@ switch ($act) {
                     foreach ($dataUsers as $data) {
                         echo "<tr>
                 <td>$data[id_dokter]</td>
-                <td>$data[nama_dokter]</td>
+                <td>";
+                        echo "dr.<span style='text-transform: capitalize;'>" . substr($data['nama_dokter'], 3) . "</span>";
+                        echo "
+                </td>
                 <td>$data[spesialisasi]</td>
                 <td>$data[jadwal]</td>
                 <td class='center aligned'>";
                         if ($data['id_pengguna'] != "") {
                             echo "<i class='checkmark green icon'></i>";
+                        } else {
+                            echo "<i class='minus icon'></i>";
                         }
                         echo "
                 </td>

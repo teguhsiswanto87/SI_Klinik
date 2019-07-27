@@ -20,11 +20,36 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
            href=<?php echo "media.php?m=pengguna&act=edit&id=$_SESSION[id_pengguna]"; ?>>
             <img class="ui right spaced avatar image"
                  src=<?php echo "$dir_icon$icon"; ?>>
-            <?php echo "$_SESSION[nama]"; ?>
+            <?php
+            if ($_SESSION['status'] == 'dirut') {
+                include_once "../model/Direktur.php";
+                $direktur = new Direktur();
+                $dataDirektur = $direktur->getItemDirekturBy($_SESSION['id_pengguna'], 'id_pengguna');
+                echo $dataDirektur['nama_direktur'];
+            } elseif ($_SESSION['status'] == 'dokter') {
+                include_once "../model/Dokter.php";
+                $dokter = new Dokter();
+                $dataDokter = $dokter->getItemDokterBy($_SESSION['id_pengguna'], 'id_pengguna');
+                echo $dataDokter['nama_dokter'];
+            } else {
+                include_once "../model/Petugas.php";
+                $petugas = new Petugas();
+                $dataPetugas = $petugas->getItemPetugasBy($_SESSION['id_pengguna'], 'id_pengguna');
+                echo $dataPetugas['nama_pegawai'];
+            }
+            ?>
         </a>
         <a class="item" style="cursor: default; text-transform: capitalize;">
             <?php
-            if ($_SESSION['status'] == 'dirut') echo "Direktur Utama";
+            if ($_SESSION['status'] == 'dirut') {
+                echo "Direktur Utama";
+                echo "Direktur Utama";
+            } elseif ($_SESSION['status'] == 'dokter') {
+                echo $_SESSION['status'];
+            } else {
+                echo "Petugas Administrasi";
+            }
+
             ?>
         </a>
         <div class="right menu">

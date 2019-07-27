@@ -142,6 +142,22 @@ class Direktur
         }
     }
 
+// update data direktur by column
+    function updateDirekturBy($setColumn, $setValue, $whereColumn, $whereValue)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "UPDATE direktur_utama SET $setColumn='$setValue' 
+                    WHERE $whereColumn='$whereValue' ";
+            $res = $conn->query($sql);
+
+            if ($res) return true; else return false;
+
+        } else {
+            return false;
+        }
+    }
+
 //delete 1 data direktur
     function deleteDirektur($id_direktur)
     {

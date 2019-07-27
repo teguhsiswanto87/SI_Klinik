@@ -74,6 +74,17 @@ if ($m === 'pengguna' && $act == 'tambah') {
     } else {
         echo "Gagal memperbarui data $m";
     }
+} elseif ($m == 'pengguna' && $act == 'updatedirut') {
+    $id_pengguna = $conn->real_escape_string(my_inputformat(anti_injection($_POST['id']), 0));
+    $nama_direktur = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_direktur']), 1));
+
+    $updateDirektur = $direktur->updateDirekturBy('nama_direktur', $nama_direktur, 'id_pengguna', $id_pengguna);
+
+    if ($updateDirektur) {
+        header("location: ../../media.php?m=" . $m);
+    } else {
+        echo "Gagal memperbarui data $m";
+    }
 } elseif ($m == 'pengguna' && $act == 'hapusakses') {
 
     $id_pengguna = $_GET['id'];

@@ -32,7 +32,7 @@ if (!isset($_POST['btnLogin'])) {
                     session_start();
                     $_SESSION['nama'] = $user_detail['nama_direktur'];
                     break;
-                case "admin":
+                case "petugas":
                     $res2 = $conn->query("SELECT * FROM petugas_administrasi WHERE id_pengguna='$user_data[id_pengguna]' ");
                     $user_detail = $res2->fetch_assoc();
                     session_start();

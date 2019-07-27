@@ -1,9 +1,9 @@
 <?php
 // call Class Pengguna
-include "../model/Pengguna.php";
-include "../model/Petugas.php";
-include "../model/Dokter.php";
-include "../model/Direktur.php";
+include_once "../model/Pengguna.php";
+include_once "../model/Petugas.php";
+include_once "../model/Dokter.php";
+include_once "../model/Direktur.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_pengguna/aksi_pengguna.php";
@@ -215,18 +215,71 @@ switch ($act) {
                                    minlength="4" maxlength="50"
                                    id="username" autofocus>
                         </div>
+                        <div class="field column wide eight">
+                            <br>
+                            <button class="ui basic primary button" type="submit" name="btnPenggunaAdd">
+                                Perbarui Username
+                            </button>
+                        </div>
                     </div>
 
-                    <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
-                        Perbarui
-                    </button>
                 </form>
                 <br>
                 <a href="" style="border-bottom: 1px dotted currentColor; " title="belum cuy"> Ganti
                     Password </a>
             </div>
-
         </div>
+        <br>
+        <div class="ui stackable grid container">
+            <div class="eight wide column">
+                <h4 class="ui horizontal divider header">
+                    <i class="pencil alternate icon"></i>
+                    Data Diri Anda
+                </h4>
+                <?php if ($_SESSION['status'] == 'dirut') {
+                    $dataDirektur = $direktur->getItemDirekturBy($_SESSION['id_pengguna'], 'id_pengguna');
+                    ?>
+                    <form class="ui form" method="POST"
+                          action="<?php echo "$aksi?m=$m&act=updatedirut"; ?>">
+                        <div class="ui grid">
+                            <div class="field column wide eight">
+                                <label>Nama Lengkap</label>
+                                <input type="hidden" value="<?php echo "$_SESSION[id_pengguna]"; ?>" name="id">
+                                <input type="text" name="nama_direktur"
+                                       placeholder="<?php echo "$dataDirektur[nama_direktur]"; ?>"
+                                       value="<?php echo "$dataDirektur[nama_direktur]"; ?>"
+                                       minlength="4" maxlength="50">
+                            </div>
+                        </div>
+
+                        <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
+                            Perbarui Data Anda
+                        </button>
+                    </form>
+                <?php } elseif ($_SESSION['status'] == 'dokter') {
+                    $dataDokter = $dokter->getItemDokterBy($_SESSION['id_pengguna'], 'id_pengguna');
+                    ?>
+                    <form class="ui form" method="POST"
+                          action="<?php echo "$aksi?m=$m&act=updatedokter"; ?>">
+                        <div class="ui grid">
+                            <div class="field column wide eight">
+                                <label>Nama Lengkap</label>
+                                <input type="hidden" value="<?php echo "$_SESSION[id_pengguna]"; ?>" name="id">
+                                <input type="text" name="nama_dokter"
+                                       placeholder="<?php echo "$dataDokter[nama_dokter]"; ?>"
+                                       value="<?php echo "$dataDokter[nama_dokter]"; ?>"
+                                       minlength="4" maxlength="50">
+                            </div>
+                        </div>
+
+                        <button class="ui basic primary button right floated" type="submit" name="btnPenggunaAdd">
+                            Perbarui Data Anda
+                        </button>
+                    </form>
+                <?php } ?>
+            </div>
+        </div>
+
         <?php
         break;
 
