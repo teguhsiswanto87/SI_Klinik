@@ -40,6 +40,25 @@ class Module
         }
     }
 
+// get 1 data with parameter column (select by)
+    function getItemModuleBy($value, $column)
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "SELECT * FROM module WHERE $column='$value';";
+            $res = $conn->query($sql);
+            $data = $res->fetch_assoc();
+            $row_cnt = $res->num_rows;
+
+            if ($row_cnt == 1) {
+                return $data;
+            }
+
+        } else {
+            return false;
+        }
+    }
+
 // input data module
     function insertModule($module_name, $link, $icon, $active, $access_director, $access_admin, $access_doctor)
     {

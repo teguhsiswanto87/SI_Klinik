@@ -43,7 +43,7 @@ switch ($act) {
                         echo "<tr>
                 <td>$data[id_pasien]</td>
                 <td style='text-transform: capitalize;'>$data[nama_pasien]</td>
-                <td>$data[tempat_lahir]</td>
+                <td style='text-transform: capitalize;'>$data[tempat_lahir]</td>
                 <td>";
                         $tanggal = tgl_indo($data['tgl_lahir']);
                         echo "$tanggal
