@@ -72,6 +72,7 @@ create table info_pemeriksaan(
     id_pasien varchar(6),
     tgl_periksa date not null,
     hasil_periksa varchar(50),
+    nama_pemeriksaan varchar(50),
 
     constraint fk_ip_pasien foreign key(id_pasien) references pasien(id_pasien),
     constraint fk_ip_dokter foreign key(id_dokter) references dokter(id_dokter)
@@ -147,10 +148,10 @@ insert into petugas_administrasi(id_petugas,id_pengguna ,nama_pegawai, alamat, k
 ('pa0004', NULL, 'anwar saputra', 'jl.saturnus no.13', '09989878766');
 
 insert into dokter(id_dokter, id_pengguna, nama_dokter, spesialisasi, jadwal) values
-('dk0001', NULL, 'dr.alif gunawan', 'dokter gigi', 'rabu'),
-('dk0002', 'pg0005', 'dr.rashil alif', 'dokter umum', 'sabtu'),
-('dk0003', NULL, 'dr.happy asmara', 'dokter gizi', 'senin'),
-('dk0004', 'pg0006', 'dr.brigita julia p n g', 'dokter anak', 'selasa');
+('dk0001', NULL, 'dr. alif gunawan', 'dokter gigi', 'rabu'),
+('dk0002', 'pg0005', 'dr. rashil alif', 'dokter umum', 'sabtu'),
+('dk0003', NULL, 'dr. happy asmara', 'dokter gizi', 'senin'),
+('dk0004', 'pg0006', 'dr. brigita julia p n g', 'dokter anak', 'selasa');
 
 
 -- (null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
