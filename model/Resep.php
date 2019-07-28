@@ -60,12 +60,12 @@ class resep
     }
 
 // masukkan data resep
-    function insertresep($id_resep, $id_dokter, $id_pasien,$nama_obat, $jenis)
+    function insertresep($id_resep, $id_dokter, $id_pasien,$nama_resep, $jenis_obat)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO resep_dokter(id_resep,id_dokter,id_pasien,nama_obat,jenis)
-                    VALUES('$id_resep','$id_dokter', '$id_pasien', '$nama_obat', '$jenis')";
+            $sql = "INSERT INTO resep_dokter(id_resep,id_dokter,id_pasien,nama_resep,jenis_obat)
+                    VALUES('$id_resep','$id_dokter', '$id_pasien', '$nama_resep', '$jenis_obat')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }
@@ -73,15 +73,15 @@ class resep
     }
 
 // update data resep
-    function updateresep($id_resep, $id_dokter, $id_pasien, $nama_obat, $jenis)
+    function updateresep($id_resep, $id_dokter, $id_pasien, $nama_resep, $jenis_obat)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
             $sql = "UPDATE resep_dokter SET 
                                      id_dokter='$id_dokter',
                                      id_pasien='$id_pasien',
-                                     nama_obat='$nama_obat',
-                                     jenis='$jenis'  
+                                     nama_resep='$nama_resep',
+                                     jenis_obat='$jenis_obat'  
                     WHERE id_resep='$id_resep'";
             $res = $conn->query($sql);
 
