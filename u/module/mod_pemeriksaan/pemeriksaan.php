@@ -1,16 +1,20 @@
 <?php
 // call Class Pemeriksaan
 include "../model/Pemeriksaan.php";
+include "../model/Pasien.php";
+include "../config/library.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_pemeriksaan/aksi_pemeriksaan.php";
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 $pemeriksaan = new Pemeriksaan();
+$pasien = new Pasien();
+$dokter = new Dokter();
 
 switch ($act) {
     default: ?>
         <div class="ui stackable grid container">
-            <div class="eleven wide column">
+            <div class="twelve wide column">
                 <h2 class="">Tampil Pemeriksaan</h2>
             </div>
             <div class="four wide column">
@@ -20,16 +24,17 @@ switch ($act) {
                     Tambah Pemeriksaan
                 </a>
             </div>
-            <div class="fifteen wide column">
-                <table class="ui selectable very basic table">
+            <div class="sixteen wide column">
+                <table class="ui selectable very basic table fixed">
                     <thead>
                     <tr>
-                        <th class="one wide">ID</th>
-                        <th class="one wide">Dokter</th>
-                        <th class="one wide">Pasien</th>
-                        <th class="two wide">Tanggal</th>
-                        <th class="two wide">Nama pemeriksaan</th>
-                        <th class="two wide">Aksi</th>
+                        <th>ID</th>
+                        <th>Dokter</th>
+                        <th>Pasien</th>
+                        <th>Tanggal</th>
+                        <th>Nama pemeriksaan</th>
+                        <th>Hasil Periksa</th>
+                        <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -39,10 +44,23 @@ switch ($act) {
                     foreach ($dataPemeriksaan as $data) {
                         echo "<tr>
                 <td>$data[id_pemeriksaan]</td>
-                <td>$data[id_dokter]</td>
-                <td>$data[id_pasien]</td>
-                <td>$data[tgl_periksa]</td>
+                <td>";
+                        $dataDokter = $dokter->getItemDokter($data['id_dokter']);
+                        $shortDoctorName = explode(' ', trim($dataDokter['nama_dokter']));
+                        echo "dr.$shortDoctorName[1]";
+                        echo "
+                </td>
+                <td>";
+                        $dataPasien = $pasien->getItemPasien($data['id_pasien']);
+                        $shortPasienName = explode(' ', trim($dataPasien['nama_pasien']));
+                        echo "$shortPasienName[0]
+                </td>
+                <td>";
+                        $tanggal = tgl_indo($data['tgl_periksa']);
+                        echo "$tanggal
+                </td>
                 <td>$data[nama_pemeriksaan]</td>
+                <td>$data[hasil_periksa]</td>
                 <td>
                     <a href='?m=$m&act=edit&id=$data[id_pemeriksaan]'>Edit</a> | 
                     <a href='$aksi?m=$m&act=hapus&id=$data[id_pemeriksaan]'
@@ -77,26 +95,39 @@ switch ($act) {
                 <form class="ui form" method="POST" name="formPemeriksaan"
                       onsubmit="return pemeriksaanValidation('tambah')"
                       action=<?php echo "$aksi?m=$m&act=tambah" ?>>
+                    <?php
+                    $dataDokter = $dokter->getItemDokterBy($_SESSION['id_pengguna'], 'id_pengguna');
+                    echo "<input type='hidden' value='$dataDokter[id_dokter]' name='id_dokter'>";
+                    ?>
+
                     <div class="field">
                         <label>Nama pasien</label>
-                        <?php
+                        <select name="id_pasien">
+                            <option>--Pilih Pasien--</option>
+                            <?php
+                            $dataPasien = $pasien->getListPasien();
+                            foreach ($dataPasien as $data) {
+                                echo "<option value='$data[id_pasien]'>$data[nama_pasien]</option> ";
+                            }
+                            ?>
 
-                        ?>
-                        <select name="id_pasien" class="ui">
-                            <option value=""></option>
                         </select>
                     </div>
 
                     <div class="ui grid">
-                        <div class="field eight wide column" id="passwordId">
-                            <label>Spesialisasi</label>
-                            <input type="text" name="spesialisasi" placeholder="Spesialisasi">
-                        </div>
-                        <div class="field eight wide column" id="confirmPasswordId">
-                            <label>Jadwal</label>
-                            <input type="text" name="jadwal" maxlength="13" placeholder="Jadwal">
+                        <div class="field sixteen wide column" id="passwordId">
+                            <label>Nama Pemeriksaan</label>
+                            <input type="text" name="nama_pemeriksaan" placeholder="Nama Pemeriksaan">
                         </div>
                     </div>
+                    <div class="ui grid">
+                        <div class="field sixteen wide column" id="confirmPasswordId">
+                            <label>Hasil Periksa</label>
+                            <textarea type="text" name="hasil_periksa"
+                                      placeholder="Hasil Pemeriksaan oleh dokter"></textarea>
+                        </div>
+                    </div>
+                    <br>
                     <button class="ui basic primary button right floated" type="submit" name="btnPemeriksaanAdd">
                         Tambahkan
                     </button>
@@ -127,27 +158,22 @@ switch ($act) {
                       onsubmit="return pemeriksaanValidation('update')"
                       action=<?php echo "$aksi?m=$m&act=update" ?>>
                     <input type="hidden" name="id" value="<?php echo $data['id_pemeriksaan']; ?>">
-                    <div class="field">
-                        <label>Nama pasien</label>
-                        <div class="ui labeled input">
-                            <div class="ui label">dr.</div>
-                            <input type="text" name="nama_pemeriksaan" placeholder="<?php echo $data['nama_pemeriksaan']; ?>"
-                                   value="<?php echo substr($data['nama_pemeriksaan'], 3); ?>" required>
+                    <div class="ui grid">
+                        <div class="field sixteen wide column" id="passwordId">
+                            <label>Nama Pemeriksaan</label>
+                            <input type="text" name="nama_pemeriksaan"
+                                   placeholder="<?php echo $data['nama_pemeriksaan']; ?>"
+                                   value="<?php echo $data['nama_pemeriksaan']; ?>" autofocus>
                         </div>
                     </div>
                     <div class="ui grid">
-                        <div class="field eight wide column" id="passwordId">
-                            <label>Spesialisasi</label>
-                            <input type="text" name="spesialisasi" placeholder="<?php echo $data['spesialisasi']; ?>"
-                                   value="<?php echo $data['spesialisasi']; ?>">
-                        </div>
-                        <div class="field eight wide column" id="confirmPasswordId">
-                            <label>Jadwal</label>
-                            <input type="text" name="jadwal" maxlength="13"
-                                   placeholder="<?php echo $data['jadwal']; ?>"
-                                   value="<?php echo $data['jadwal']; ?>" " >
+                        <div class="field sixteen wide column" id="confirmPasswordId">
+                            <label>Hasil Periksa</label>
+                            <textarea type="text" name="hasil_periksa"
+                                      placeholder="<?php echo $data['hasil_periksa']; ?>"><?php echo $data['hasil_periksa']; ?></textarea>
                         </div>
                     </div>
+                    <br>
                     <button class="ui basic primary button right floated" type="submit" name="btnPemeriksaanAdd">
                         Perbarui
                     </button>

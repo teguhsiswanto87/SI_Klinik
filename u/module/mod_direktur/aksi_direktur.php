@@ -14,7 +14,7 @@ if ($m == 'direktur' && $act == 'tambah') {
     if (empty($hasil)) {
         $id_direktur = 'dr0001';
     } else {
-        $ambilAngka = substr($hasil['id_direktur'], 3);
+        $ambilAngka = substr($hasil['id_direktur'], 2);
         $incrementAngka = (int)$ambilAngka + 1;
         // membuat angka 4 menjadi 0004 / 34 -> 0034 / 234 -> 0234
         if (strlen($incrementAngka) == 1) {
@@ -30,7 +30,7 @@ if ($m == 'direktur' && $act == 'tambah') {
     }
 
     $nama_direktur = $conn->real_escape_string(my_inputformat(anti_injection($_POST['nama_direktur']), 1));
-    
+
 
     $insert = $direktur->insertDirektur($id_direktur, $nama_direktur);
     if ($insert) {

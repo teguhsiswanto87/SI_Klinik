@@ -14,7 +14,7 @@ if ($m == 'petugas' && $act == 'tambah') {
     if (empty($hasil)) {
         $id_petugas = 'pa0001';
     } else {
-        $ambilAngka = substr($hasil['id_petugas'], 3);
+        $ambilAngka = substr($hasil['id_petugas'], 2);
         $incrementAngka = (int)$ambilAngka + 1;
         // membuat angka 4 menjadi 0004 / 34 -> 0034 / 234 -> 0234
         if (strlen($incrementAngka) == 1) {

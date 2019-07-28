@@ -58,8 +58,8 @@ create table resep_dokter(
     id_resep varchar(6) primary key,
     id_dokter varchar(6),
     id_pasien varchar(6),
-    nama_obat varchar(50) not null,
-    jenis varchar(50),
+    nama_resep varchar(50) not null,
+    jenis_obat varchar(50),
 
     constraint fk_rd_dokter foreign key(id_dokter) references dokter(id_dokter),
     constraint fk_rd_pasien foreign key(id_pasien) references pasien(id_pasien)
@@ -71,7 +71,7 @@ create table info_pemeriksaan(
     id_dokter varchar(6),
     id_pasien varchar(6),
     tgl_periksa date not null,
-    hasil_periksa varchar(50),
+    hasil_periksa text,
     nama_pemeriksaan varchar(50),
 
     constraint fk_ip_pasien foreign key(id_pasien) references pasien(id_pasien),
@@ -136,22 +136,22 @@ insert into pengguna(id_pengguna, username, password, status, url_photo) values
 ('pg0008', 'teguh', sha1('teguh'), 'petugas', '');
 
 INSERT INTO `direktur_utama` (`id_direktur`, `id_pengguna`, `nama_direktur`) VALUES
-('dr0001', 'pg0003', 'wahid herlambang suroso'),
-('dr0002', 'pg0004', 'rizal arif nugraha'),
-('dr0003', NULL, 'sulaksono'),
-('dr0004', NULL, 'sukamto');
+('dr0001', 'pg0003', 'Wahid Herlambang Suroso'),
+('dr0002', 'pg0004', 'Rizal Arif Nugraha'),
+('dr0003', NULL, 'Sulaksono'),
+('dr0004', NULL, 'Sukamto');
 
 insert into petugas_administrasi(id_petugas,id_pengguna ,nama_pegawai, alamat, kontak) values
-('pa0001', 'pg0008', 'teguh siswanto', 'jl.sariwates indah no.01', '08996976185'),
-('pa0002', NULL, 'akmarina', 'jl.sariwates indah no.17', '089566677789'),
-('pa0003', 'pg0007', 'angga heru', 'jl.layang no.1', '08111178900'),
-('pa0004', NULL, 'anwar saputra', 'jl.saturnus no.13', '09989878766');
+('pa0001', 'pg0008', 'Teguh Siswanto', 'Jl.Sariwates Indah No.01', '08996976185'),
+('pa0002', NULL, 'Akmarina', 'Jl.Sariwates Indah No.17', '089566677789'),
+('pa0003', 'pg0007', 'Angga Heru', 'Jl.Layang no.1', '08111178900'),
+('pa0004', NULL, 'Anwar Saputra', 'Jl.Saturnus no.13', '09989878766');
 
 insert into dokter(id_dokter, id_pengguna, nama_dokter, spesialisasi, jadwal) values
-('dk0001', NULL, 'dr. alif gunawan', 'dokter gigi', 'rabu'),
-('dk0002', 'pg0005', 'dr. rashil alif', 'dokter umum', 'sabtu'),
-('dk0003', NULL, 'dr. happy asmara', 'dokter gizi', 'senin'),
-('dk0004', 'pg0006', 'dr. brigita julia p n g', 'dokter anak', 'selasa');
+('dk0001', NULL, 'dr. Alif Gunawan', 'dokter gigi', 'rabu'),
+('dk0002', 'pg0005', 'dr. Rashil Alif', 'dokter umum', 'sabtu'),
+('dk0003', NULL, 'dr. Happy Asmara', 'dokter gizi', 'senin'),
+('dk0004', 'pg0006', 'dr. Brigita Julia PNG', 'dokter anak', 'selasa');
 
 
 -- (null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
@@ -162,4 +162,7 @@ insert into dokter(id_dokter, id_pengguna, nama_dokter, spesialisasi, jadwal) va
 -- (null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
 INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `kontak`) VALUES
-('ps0002', 'siti jenar pengalaman', 'semarang', '1999-09-30', 'L', 'jl.rumongso ingsun waye wayae adus no.13', '089988877765');
+('ps0002', 'Siti Jenar Pengalaman', 'Semarang', '1999-09-30', 'L', 'Jl.Babakan Sari No.1 no.13', '089988877765'),
+('ps0003', 'Wahyu Kolosebo', 'Yogyakarta', '1981-09-25', 'L', 'Jl.Bumi Mars No.13', '0222897867'),
+('ps0004', 'Agus Kotak', 'Cilacap', '1984-02-12', 'L', 'Jl.Kebaktian No.190', '089123321123'),
+('ps0005', 'Yuni', 'Bandung', '1998-09-11', 'P', 'Jl.Stasiun Selatan No.120', '0887766554433');

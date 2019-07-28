@@ -14,7 +14,7 @@ if ($m == 'pasien' && $act == 'tambah') {
     if (empty($hasil)) {
         $id_pasien = 'ps0001';
     } else {
-        $ambilAngka = substr($hasil['id_pasien'], 3);
+        $ambilAngka = substr($hasil['id_pasien'], 2);
         $incrementAngka = (int)$ambilAngka + 1;
         // membuat angka 4 menjadi 0004 / 34 -> 0034 / 234 -> 0234
         if (strlen($incrementAngka) == 1) {

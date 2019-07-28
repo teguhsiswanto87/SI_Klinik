@@ -79,41 +79,24 @@ class Pemeriksaan
     }
 
 // masukkan data Pemeriksaan
-    function insertPemeriksaan($id_pemeriksaan, $id_dokter, $id_pasien, $nama_pemeriksaan, $hasil_pemeriksa, $tgl_periksa)
+    function insertPemeriksaan($id_pemeriksaan, $id_dokter, $id_pasien, $nama_pemeriksaan, $hasil_periksa, $tgl_periksa)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "INSERT INTO info_pemeriksaan(id_pemeriksaan, id_dokter, id_pasien,nama_pemeriksaan, hasil_pemeriksa, tgl_periksa)
-                        VALUES('$id_pemeriksaan','$id_dokter', '$id_pasien','$nama_pemeriksaan','$hasil_pemeriksa','$tgl_periksa')";
+            $sql = "INSERT INTO info_pemeriksaan(id_pemeriksaan, id_dokter, id_pasien,nama_pemeriksaan, hasil_periksa, tgl_periksa)
+                        VALUES('$id_pemeriksaan','$id_dokter', '$id_pasien','$nama_pemeriksaan','$hasil_periksa','$tgl_periksa')";
             $res = $conn->query($sql);
             if ($res) return true; else return false;
         }
 
     }
-
-// update data Pemeriksaan
-    function updatePemeriksaanAksesPegguna($id_pemeriksaan, $nama_pemeriksaan, $hasil_pemeriksa)
-    {
-        $conn = dbConnect();
-        if ($conn->connect_errno == 0) {
-            $sql = "UPDATE info_pemeriksaan SET nama_pemeriksaan='$nama_pemeriksaan', hasil_periksa='$hasil_pemeriksa'
-                    WHERE id_pemeriksaan='$id_pemeriksaan' ";
-            $res = $conn->query($sql);
-
-            if ($res) return true; else return false;
-
-        } else {
-            return false;
-        }
-    }
-
 
 // update data info_pemeriksaan
-    function updatePemeriksaan($id_pemeriksaan, $nama_pemeriksaan, $hasil_pemeriksa, $tgl_periksa)
+    function updatePemeriksaan($id_pemeriksaan, $nama_pemeriksaan, $hasil_periksa)
     {
         $conn = dbConnect();
         if ($conn->connect_errno == 0) {
-            $sql = "UPDATE info_pemeriksaan SET nama_pemeriksaan='$nama_pemeriksaan',hasil_pemeriksa='$hasil_pemeriksa',tgl_periksa='$tgl_periksa' 
+            $sql = "UPDATE info_pemeriksaan SET nama_pemeriksaan='$nama_pemeriksaan',hasil_periksa='$hasil_periksa' 
                     WHERE id_pemeriksaan='$id_pemeriksaan' ";
             $res = $conn->query($sql);
 

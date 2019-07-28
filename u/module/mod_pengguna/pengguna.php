@@ -46,7 +46,7 @@ switch ($act) {
                         echo "<tr>
                 <td>$no</td>
                 <td>$data[username]</td>
-                <td style='text-transform: capitalize;'>";
+                <td>";
                         if ($data['status'] == 'dirut') {
                             $item = $direktur->getItemDirekturBy($data['id_pengguna'], 'id_pengguna');
                             echo "$item[nama_direktur]";

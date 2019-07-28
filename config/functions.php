@@ -19,9 +19,9 @@ function anti_injection($data)
 function my_inputformat($str, $space)
 {
     if ($space == 1)
-        return strtolower(trim(preg_replace("/\s+/", " ", $str)));
+        return trim(preg_replace("/\s+/", " ", $str));
     else
-        return strtolower(trim(preg_replace("/\s+/", "", $str)));
+        return trim(preg_replace("/\s+/", "", $str));
 }
 
 // get data from Module (store in side bar administrator web)
