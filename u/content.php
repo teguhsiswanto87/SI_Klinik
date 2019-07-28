@@ -55,7 +55,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } elseif ($_GET['m'] == 'pemeriksaan') {
         if (moduleAccess($_GET['m'], $accessName))
             include "module/mod_pemeriksaan/pemeriksaan.php";
-    } else {
+    } elseif ($_GET['m'] == 'resep') {
+        if (moduleAccess($_GET['m'], $accessName))
+            include "module/mod_resep/resep.php";
+    }
+    else {
         echo "Modul <b>$_GET[m]</b> sedang dibuat";
     }
 
