@@ -53,9 +53,9 @@ create table dokter(
     constraint fk_dok_pengguna foreign key(id_pengguna) references pengguna(id_pengguna)
 
 );
--- 5 // id_obat -> rd0001
+-- 5 // id_resep -> rd0001
 create table resep_dokter(
-    id_obat varchar(6) primary key,
+    id_resep varchar(6) primary key,
     id_dokter varchar(6),
     id_pasien varchar(6),
     nama_obat varchar(50) not null,
@@ -113,24 +113,45 @@ create table module(
 )Engine=InnoDB;
 -- ### INSERT DATA MODULE
 insert into module(module_id, module_name, link, icon, active, access_director, access_admin, access_doctor) values
-(1, "beranda","?m=beranda","home","Y","Y","Y","Y"),
-(2, "module","?m=module","clone","Y","Y","Y","Y"),
-(3, "pasien","?m=pasien","users","Y","Y","Y","Y"),
-(4, "pengguna","?m=pengguna","user circle outline","Y","Y","Y","Y"),
-(5, "direktur","?m=direktur","user circle","Y","Y","Y","Y"),
-(6, "petugas","?m=petugas","user outline","Y","Y","Y","Y"),
-(7, "dokter","?m=dokter","heartbeat","Y","Y","Y","Y"),
-(8, "resep","?m=resep","first aid","Y","Y","Y","Y"),
-(9, "pemeriksaan","?m=pemeriksaan","check square outline","Y","Y","Y","Y"),
-(10, "pembayaran","?m=pembayaran","dollar sign","Y","Y","Y","Y"),
-(11, "laporan","?m=laporan","book","Y","Y","Y","Y"),
-(12, "pertanyaan","?m=pertanyaan","question circle orange","Y","Y","Y","Y");
+(1, 'beranda', '?m=beranda', 'home', 'Y', 'Y', 'Y', 'Y'),
+(2, 'module', '?m=module', 'clone', 'Y', 'Y', 'N', 'N'),
+(3, 'pasien', '?m=pasien', 'users', 'Y', 'N', 'Y', 'N'),
+(4, 'pengguna', '?m=pengguna', 'user circle outline', 'Y', 'Y', 'N', 'N'),
+(5, 'direktur', '?m=direktur', 'user circle', 'Y', 'Y', 'N', 'N'),
+(6, 'petugas', '?m=petugas', 'user outline', 'Y', 'Y', 'N', 'N'),
+(7, 'dokter', '?m=dokter', 'heartbeat', 'Y', 'Y', 'N', 'N'),
+(8, 'resep', '?m=resep', 'first aid', 'Y', 'N', 'N', 'Y'),
+(9, 'pemeriksaan', '?m=pemeriksaan', 'check square outline', 'Y', 'N', 'N', 'Y'),
+(10, 'pembayaran', '?m=pembayaran', 'dollar sign', 'Y', 'N', 'Y', 'N'),
+(11, 'laporan', '?m=laporan', 'book', 'Y', 'Y', 'N', 'N'),
+(12, 'pertanyaan', '?m=pertanyaan', 'question circle orange', 'N', 'Y', 'N', 'N');
 
--- Insert Pengguna => untuk login admin
 insert into pengguna(id_pengguna, username, password, status, url_photo) values
-('pg0001', 'dokter',sha1('dokter'),'dokter','https://img.icons8.com/color/48/000000/doctor-male.png'),
-('pg0002', 'admin',sha1('admin'),'admin','https://img.icons8.com/dusk/50/000000/admin-settings-male.png'),
-('pg0003', 'dirut',sha1('dirut'),'dirut','https://img.icons8.com/color/48/000000/administrator-male.png');
+('pg0003', 'wahid', sha1('wahid'), 'dirut', ''),
+('pg0004', 'rizal', sha1('rizal'), 'dirut', ''),
+('pg0005', 'rashil', sha1('rashil'), 'dokter', ''),
+('pg0006', 'brigita', sha1('brigita'), 'dokter', ''),
+('pg0007', 'angga', sha1('angga'), 'petugas', ''),
+('pg0008', 'teguh', sha1('teguh'), 'petugas', '');
+
+INSERT INTO `direktur_utama` (`id_direktur`, `id_pengguna`, `nama_direktur`) VALUES
+('dr0001', 'pg0003', 'wahid herlambang suroso'),
+('dr0002', 'pg0004', 'rizal arif nugraha'),
+('dr0003', NULL, 'sulaksono'),
+('dr0004', NULL, 'sukamto');
+
+insert into petugas_administrasi(id_petugas,id_pengguna ,nama_pegawai, alamat, kontak) values
+('pa0001', 'pg0008', 'teguh siswanto', 'jl.sariwates indah no.01', '08996976185'),
+('pa0002', NULL, 'akmarina', 'jl.sariwates indah no.17', '089566677789'),
+('pa0003', 'pg0007', 'angga heru', 'jl.layang no.1', '08111178900'),
+('pa0004', NULL, 'anwar saputra', 'jl.saturnus no.13', '09989878766');
+
+insert into dokter(id_dokter, id_pengguna, nama_dokter, spesialisasi, jadwal) values
+('dk0001', NULL, 'dr.alif gunawan', 'dokter gigi', 'rabu'),
+('dk0002', 'pg0005', 'dr.rashil alif', 'dokter umum', 'sabtu'),
+('dk0003', NULL, 'dr.happy asmara', 'dokter gizi', 'senin'),
+('dk0004', 'pg0006', 'dr.brigita julia p n g', 'dokter anak', 'selasa');
+
 
 -- (null, 'rashil',sha1('rashil'),'Rashil Alif','https://akademik.unikom.ac.id/foto/10117042.jpg'),
 -- (null, 'rizal',sha1('rizal'),'Rizal Alif Nugraha','https://akademik.unikom.ac.id/foto/10117048.jpg'),
@@ -139,14 +160,5 @@ insert into pengguna(id_pengguna, username, password, status, url_photo) values
 -- (null, 'brigita',sha1('brigita'),'Brigita Julia PNG','https://akademik.unikom.ac.id/foto/10117074.jpg'),
 -- (null, 'amin',sha1('admin'),'Teguh Siswanto','https://akademik.unikom.ac.id/foto/10117065.jpg');
 
--- ### INSERT DATA PETUGAS_ADMINISTRASI
-insert into petugas_administrasi(id_petugas, nama_pegawai, alamat, kontak) values
-('pa0001', 'nuri gendis','jl.kebangsaan timur tengah no.13','089978675645'),
-('pa0002', 'akmarina','jl.sariwates indah no.17','089566677789'),
-('pa0003', 'sukmara jajang','jl.layang no.1','08111178900');
-
--- ### INSERT DATA DOKTER
-insert into dokter(id_dokter, nama_dokter, spesialisasi, jadwal) values
-('dk0001', 'dr. slamet','dokter umum','senin'),
-('dk0002', 'dr. firmino','dokter gigi','minggu'),
-('dk0003', 'dr. firmino','dokter anak','jumat');
+INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `kontak`) VALUES
+('ps0002', 'siti jenar pengalaman', 'semarang', '1999-09-30', 'L', 'jl.rumongso ingsun waye wayae adus no.13', '089988877765');

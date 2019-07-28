@@ -61,7 +61,7 @@ if (!isset($_POST['btnLogin'])) {
             $conn->query("UPDATE pengguna SET id_session='$sid_baru' WHERE username='$username'");
 
             //langsung direct ke modul
-            header("location:media.php?m=module");
+            header("location:media.php?m=beranda");
         } else {
             header("location: index.php?error=1");
         }
