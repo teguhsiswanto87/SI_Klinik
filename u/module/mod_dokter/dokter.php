@@ -24,7 +24,7 @@ switch ($act) {
                 <table class="ui selectable very basic table">
                     <thead>
                     <tr>
-                        <th class="one wide">ID</th>
+                        <th class="one wide">ID_Dokter</th>
                         <th class="two wide">Nama Dokter</th>
                         <th class="four wide">Spesialisasi</th>
                         <th class="two wide">Jadwal</th>

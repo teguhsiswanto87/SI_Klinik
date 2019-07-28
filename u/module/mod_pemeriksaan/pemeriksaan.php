@@ -28,9 +28,9 @@ switch ($act) {
                 <table class="ui selectable very basic table fixed">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Dokter</th>
+                        <th>ID_Pemeriksaan</th>
                         <th>Pasien</th>
+                        <th>Dokter</th>
                         <th>Tanggal</th>
                         <th>Nama pemeriksaan</th>
                         <th>Hasil Periksa</th>
@@ -45,15 +45,15 @@ switch ($act) {
                         echo "<tr>
                 <td>$data[id_pemeriksaan]</td>
                 <td>";
+                        $dataPasien = $pasien->getItemPasien($data['id_pasien']);
+                        $shortPasienName = explode(' ', trim($dataPasien['nama_pasien']));
+                        echo "$shortPasienName[0]
+                </td>
+                <td>";
                         $dataDokter = $dokter->getItemDokter($data['id_dokter']);
                         $shortDoctorName = explode(' ', trim($dataDokter['nama_dokter']));
                         echo "dr.$shortDoctorName[1]";
                         echo "
-                </td>
-                <td>";
-                        $dataPasien = $pasien->getItemPasien($data['id_pasien']);
-                        $shortPasienName = explode(' ', trim($dataPasien['nama_pasien']));
-                        echo "$shortPasienName[0]
                 </td>
                 <td>";
                         $tanggal = tgl_indo($data['tgl_periksa']);

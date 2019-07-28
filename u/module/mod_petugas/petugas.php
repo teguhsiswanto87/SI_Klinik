@@ -24,8 +24,8 @@ switch ($act) {
                 <table class="ui selectable very basic table">
                     <thead>
                     <tr>
-                        <th class="one wide">ID</th>
-                        <th class="two wide">Nama Pegawai</th>
+                        <th class="one wide">ID_Petugas</th>
+                        <th class="two wide">Nama Petugas</th>
                         <th class="four wide">Alamat</th>
                         <th class="two wide">Kontak</th>
                         <th class="one wide">Akses Pengguna</th>
