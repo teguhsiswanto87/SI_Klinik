@@ -1,6 +1,7 @@
 <?php
 // call Class Petugas
 include "../model/Pasien.php";
+include "../config/library.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_pasien/aksi_pasien.php";
@@ -10,7 +11,7 @@ $pasien = new Pasien();
 switch ($act) {
     default: ?>
         <div class="ui stackable grid container">
-            <div class="eleven wide column">
+            <div class="twelve wide column">
                 <h2 class="">Tampil Pasien</h2>
             </div>
             <div class="four wide column">
@@ -27,7 +28,7 @@ switch ($act) {
                         <th class="one wide">ID_Pasien</th>
                         <th class="four wide">Nama_Pasien</th>
                         <th class="one wide">Tempat_Lahir</th>
-                        <th class="one wide">Tanggal_Lahir</th>
+                        <th class="three wide">Tanggal_Lahir</th>
                         <th class="one wide">Jenis_kelamin</th>
                         <th class="four wide">Alamat</th>
                         <th class="one wide">Kontak</th>
@@ -41,11 +42,23 @@ switch ($act) {
                     foreach ($dataUsers as $data) {
                         echo "<tr>
                 <td>$data[id_pasien]</td>
-                <td>$data[nama_pasien]</td>
-                <td>$data[tempat_lahir]</td>
-                <td>$data[tgl_lahir]</td>
+                <td style='text-transform: capitalize;'>$data[nama_pasien]</td>
+                <td style='text-transform: capitalize;'>$data[tempat_lahir]</td>
+                <td>";
+                        $tanggal = tgl_indo($data['tgl_lahir']);
+                        echo "$tanggal
+                </td>
                 <td>$data[jenis_kelamin]</td>
-                <td>$data[alamat]</td>
+                <td data-inverted='' data-tooltip='$data[alamat]' data-position='bottom center' style='text-transform: capitalize;'>";
+
+                        if (strlen($data['alamat']) > 25) {
+                            echo substr($data['alamat'], 0, 24) . '...';
+                        } else {
+                            echo "$data[alamat]";
+
+                        }
+                        echo "
+                </td>
                 <td>$data[kontak]</td>
                 <td>
                     <a href='?m=$m&act=edit&id=$data[id_pasien]'>Edit</a> | 
@@ -82,8 +95,8 @@ switch ($act) {
                       onsubmit="return pasienValidation('tambah')"
                       action=<?php echo "$aksi?m=$m&act=tambah" ?>>
                     <div class="field">
-                        <label>Nama Lengkap</label>
-                        <input type="text" name="nama_pasien" placeholder="Nama Lengkap" required>
+                        <label>Nama Pasien</label>
+                        <input type="text" name="nama_pasien" placeholder="Nama Pasien" required>
                     </div>
                     <div class="field">
                         <label>Tempat Lahir</label>
@@ -151,8 +164,9 @@ switch ($act) {
                       action=<?php echo "$aksi?m=$m&act=update"; ?>>
                     <input type="hidden" name="id" value="<?php echo $data['id_pasien']; ?>" placeholder="nama_pasien">
                     <div class="field">
-                        <label>Nama Lengkap</label>
-                        <input type="text" name="nama_pasien" value="<?php echo "$data[nama_pasien]"; ?>" placeholder="<?php echo "$data[nama_pasien]"; ?>" required>
+                        <label>Nama Pasien</label>
+                        <input type="text" name="nama_pasien" value="<?php echo "$data[nama_pasien]"; ?>"
+                               placeholder="<?php echo "$data[nama_pasien]"; ?>" required>
                     </div>
                     <div class="field">
                         <label>Tempat Lahir</label>
@@ -197,12 +211,14 @@ switch ($act) {
                     </div>
                     <div class="field">
                         <label>Alamat</label>
-                        <input type="text" name="alamat" value="<?php echo "$data[alamat]"; ?>" placeholder="<?php echo "$data[alamat]"; ?>"
+                        <input type="text" name="alamat" value="<?php echo "$data[alamat]"; ?>"
+                               placeholder="<?php echo "$data[alamat]"; ?>"
                                required>
                     </div>
                     <div class="field">
                         <label>Kontak</label>
-                        <input type="number" name="kontak" value="<?php echo "$data[kontak]"; ?>" placeholder="<?php echo "$data[kontak]"; ?>"
+                        <input type="number" name="kontak" value="<?php echo "$data[kontak]"; ?>"
+                               placeholder="<?php echo "$data[kontak]"; ?>"
                                required>
                     </div>
 

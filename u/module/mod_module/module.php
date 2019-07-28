@@ -1,6 +1,6 @@
 <?php
 // call Class Module
-include "../model/Module.php";
+//include_once "../model/Module.php";
 
 $m = $_GET['m'];
 $aksi = "module/mod_module/aksi_module.php";
@@ -39,7 +39,7 @@ switch ($act) {
                     </tr>
                     <tr>
                         <th class="center aligned">Direktur</th>
-                        <th class="center aligned">Admin</th>
+                        <th class="center aligned">Petugas Adm.</th>
                         <th class="center aligned">Dokter</th>
                     </tr>
 

@@ -28,7 +28,7 @@ if ($m === 'module' && $act == 'tambah') {
     $module_name = $conn->real_escape_string(my_inputformat(anti_injection($_POST['module_name']), 1));
     $link = $conn->real_escape_string(my_inputformat(anti_injection($_POST['link']), 0));
     $icon = $conn->real_escape_string(my_inputformat(anti_injection($_POST['icon']), 1));
-    $active = $conn->real_escape_string(my_inputformat(anti_injection(isset($_POST['active']) ? $_POST['active'] : 'Y'), 0));
+    $active = $conn->real_escape_string(my_inputformat(anti_injection(isset($_POST['active']) ? $_POST['active'] : 'N'), 0));
     $access_director = $conn->real_escape_string(my_inputformat(anti_injection(isset($_POST['access_director']) ? $_POST['access_director'] : 'N'), 0));
     $access_admin = $conn->real_escape_string(my_inputformat(anti_injection(isset($_POST['access_admin']) ? $_POST['access_admin'] : 'N'), 0));
     $access_doctor = $conn->real_escape_string(my_inputformat(anti_injection(isset($_POST['access_doctor']) ? $_POST['access_doctor'] : 'N'), 0));

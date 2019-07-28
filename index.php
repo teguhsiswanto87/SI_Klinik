@@ -12,10 +12,10 @@
 <body>
 <section class="landing">
     <div class="landing-inner">
-<!--        <img src="https://www.prodesigns.com/backend/img/sliders/medical-and-pharmaceutical/1523876893-01.png" height="254">-->
-<!--        <img src="https://image.ibb.co/f4vhyS/logo.png"/>-->
+        <!--        <img src="https://www.prodesigns.com/backend/img/sliders/medical-and-pharmaceutical/1523876893-01.png" height="254">-->
+        <!--        <img src="https://image.ibb.co/f4vhyS/logo.png"/>-->
         <img src="https://seeklogo.com/images/G/green-medical-health-logo-31098C0DAF-seeklogo.com.png"/>
-        <p>Tugas Sistem Informasi Klinik <s>Sarkem</s> Kesehatan</p>
+        <p>Tugas Sistem Informasi Klinik Kesehatan</p>
         <h1><a href="u/" style="color: currentColor; text-decoration: none">Coming Soon</a></h1>
         <!--        <h1><a href="u/" style="color: #fff;">Login Administrator</a></h1>-->
         <div class="countdown"></div>

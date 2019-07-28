@@ -43,7 +43,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             <?php
             if ($_SESSION['status'] == 'dirut') {
                 echo "Direktur Utama";
-                echo "Direktur Utama";
             } elseif ($_SESSION['status'] == 'dokter') {
                 echo $_SESSION['status'];
             } else {
