@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65ca78c1-23b7-4167-a5af-807ffd00ef01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/u/module/mod_resep/aksi_resep.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/u/module/mod_resep/resep.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Laporan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Resep.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Resep.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/library.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/library.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pasien.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pasien.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/si_klinik_dummy.sql" beforeDir="false" afterPath="$PROJECT_DIR$/model/si_klinik_dummy.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/u/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/content.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/module/mod_pembayaran/pembayaran.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pembayaran/pembayaran.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u/module/mod_resep/resep.php" beforeDir="false" afterPath="$PROJECT_DIR$/u/module/mod_resep/resep.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,41 +42,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/si_klinik.sql">
+        <entry file="file://$PROJECT_DIR$/u/module/mod_pembayaran/pembayaran.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="164" column="95" selection-start-line="164" selection-start-column="95" selection-end-line="164" selection-end-column="95" />
+            <state relative-caret-position="45">
+              <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Pemeriksaan.php">
+        <entry file="file://$PROJECT_DIR$/model/Petugas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+            <state relative-caret-position="298">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php">
+        <entry file="file://$PROJECT_DIR$/model/Pembayaran.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="55" column="49" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="55" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-645">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -78,39 +71,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/u/module/mod_resep/resep.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1042">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="345">
+              <caret line="99" column="63" selection-start-line="99" selection-start-column="63" selection-end-line="99" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/u/module/mod_resep/aksi_resep.php">
+        <entry file="file://$PROJECT_DIR$/model/Pasien.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            <state relative-caret-position="330">
+              <caret line="28" column="105" selection-start-line="28" selection-start-column="105" selection-end-line="28" selection-end-column="105" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Resep.php">
+        <entry file="file://$PROJECT_DIR$/u/module/mod_laporan/laporan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="480">
+              <caret line="62" column="75" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/si_klinik_dummy.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="134" />
-              <folding>
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-890">
+              <caret line="200" column="32" selection-start-line="200" selection-start-column="32" selection-end-line="200" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -118,17 +107,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/library.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="388">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/u/module/mod_pemeriksaan/aksi_pemeriksaan.php">
+        <entry file="file://$PROJECT_DIR$/model/Laporan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+            <state relative-caret-position="448">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/u/content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -197,26 +195,18 @@
         <option value="$PROJECT_DIR$/u/logout.php" />
         <option value="$PROJECT_DIR$/u/index.php" />
         <option value="$PROJECT_DIR$/model/Dokter.php" />
-        <option value="$PROJECT_DIR$/model/Petugas.php" />
         <option value="$PROJECT_DIR$/model/Pengguna.php" />
         <option value="$PROJECT_DIR$/model/Direktur.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pengguna/aksi_pengguna.php" />
         <option value="$PROJECT_DIR$/assets/app.js" />
-        <option value="$PROJECT_DIR$/model/Pasien.php" />
-        <option value="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" />
         <option value="$PROJECT_DIR$/u/module/mod_petugas/petugas.php" />
         <option value="$PROJECT_DIR$/u/module/mod_module/aksi_module.php" />
         <option value="$PROJECT_DIR$/u/menu.php" />
-        <option value="$PROJECT_DIR$/config/library.php" />
         <option value="$PROJECT_DIR$/u/media.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/model/Module.php" />
-        <option value="$PROJECT_DIR$/u/module/mod_module/module.php" />
         <option value="$PROJECT_DIR$/u/module/mod_direktur/direktur.php" />
-        <option value="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" />
         <option value="$PROJECT_DIR$/u/login_check.php" />
-        <option value="$PROJECT_DIR$/u/content.php" />
-        <option value="$PROJECT_DIR$/u/header.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pengguna/pengguna.php" />
         <option value="$PROJECT_DIR$/u/module/mod_dokter/aksi_dokter.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pasien/aksi_pasien.php" />
@@ -224,12 +214,23 @@
         <option value="$PROJECT_DIR$/u/module/mod_direktur/aksi_direktur.php" />
         <option value="$PROJECT_DIR$/model/Pemeriksaan.php" />
         <option value="$PROJECT_DIR$/u/module/mod_pemeriksaan/aksi_pemeriksaan.php" />
-        <option value="$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php" />
         <option value="$PROJECT_DIR$/model/si_klinik.sql" />
-        <option value="$PROJECT_DIR$/u/module/mod_resep/resep.php" />
         <option value="$PROJECT_DIR$/u/module/mod_resep/aksi_resep.php" />
         <option value="$PROJECT_DIR$/model/Resep.php" />
         <option value="$PROJECT_DIR$/config/functions.php" />
+        <option value="$PROJECT_DIR$/u/header.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_module/module.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_dokter/dokter.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_pasien/pasien.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_resep/resep.php" />
+        <option value="$PROJECT_DIR$/model/Petugas.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_pembayaran/pembayaran.php" />
+        <option value="$PROJECT_DIR$/model/Pasien.php" />
+        <option value="$PROJECT_DIR$/u/content.php" />
+        <option value="$PROJECT_DIR$/model/Laporan.php" />
+        <option value="$PROJECT_DIR$/config/library.php" />
+        <option value="$PROJECT_DIR$/u/module/mod_laporan/laporan.php" />
       </list>
     </option>
   </component>
@@ -274,6 +275,13 @@
               <item name="SI_Klinik" type="462c0819:PsiDirectoryNode" />
               <item name="u" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SI_Klinik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SI_Klinik" type="462c0819:PsiDirectoryNode" />
+              <item name="u" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="mod_laporan" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -341,6 +349,7 @@
       <workItem from="1564276998238" duration="8634000" />
       <workItem from="1564302278761" duration="4179000" />
       <workItem from="1564307504948" duration="13162000" />
+      <workItem from="1564339425852" duration="10773000" />
     </task>
     <task id="LOCAL-00001" summary="update supaya module tidak bisa dinonaktifkan">
       <created>1563975906175</created>
@@ -360,16 +369,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187264000" />
+    <option name="totallyTimeSpent" value="200602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-8" width="1370" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3267776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33207262" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32961783" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -383,6 +391,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32618684" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.32924962" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32961783" />
+      <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -443,34 +452,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Petugas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/json/json.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="289" column="9" selection-start-line="289" selection-start-column="9" selection-end-line="289" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Pasien.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="79" column="48" lean-forward="true" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_dokter/dokter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="142" column="84" selection-start-line="142" selection-start-column="84" selection-end-line="142" selection-end-column="84" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -512,13 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_petugas/petugas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -533,13 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_module/module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_direktur/direktur.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -547,34 +518,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/si_klinik_dummy.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="198" selection-start-line="198" selection-end-line="200" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u/content.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_pengguna/pengguna.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u/login_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -620,6 +567,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/si_klinik.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="164" column="95" selection-start-line="164" selection-start-column="95" selection-end-line="164" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Pemeriksaan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/module/mod_resep/aksi_resep.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Resep.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/module/mod_pemeriksaan/aksi_pemeriksaan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/login_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -627,81 +627,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
+    <entry file="file://$PROJECT_DIR$/u/media.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="134" />
+        <state relative-caret-position="1230">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
           <folding>
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/library.php">
+    <entry file="file://$PROJECT_DIR$/u/module/mod_dokter/dokter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        <state relative-caret-position="225">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_pemeriksaan/aksi_pemeriksaan.php">
+    <entry file="file://$PROJECT_DIR$/u/module/mod_module/module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+        <state relative-caret-position="240">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Pemeriksaan.php">
+    <entry file="file://$PROJECT_DIR$/u/module/mod_pasien/pasien.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="131" />
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/si_klinik.sql">
+    <entry file="file://$PROJECT_DIR$/u/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="164" column="95" selection-start-line="164" selection-start-column="95" selection-end-line="164" selection-end-column="95" />
+        <state relative-caret-position="90">
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_pemeriksaan/pemeriksaan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="55" column="49" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="55" selection-end-column="49" />
+        <state relative-caret-position="225">
+          <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/u/module/mod_resep/resep.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1042">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="345">
+          <caret line="99" column="63" selection-start-line="99" selection-start-column="63" selection-end-line="99" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u/module/mod_resep/aksi_resep.php">
+    <entry file="file://$PROJECT_DIR$/model/Pembayaran.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        <state relative-caret-position="-645">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Resep.php">
+    <entry file="file://$PROJECT_DIR$/model/Petugas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="298">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/functions.php">
+    <entry file="file://$PROJECT_DIR$/model/Pasien.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="28" column="105" selection-start-line="28" selection-start-column="105" selection-end-line="28" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/module/mod_pembayaran/pembayaran.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Laporan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/library.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u/module/mod_laporan/laporan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="62" column="75" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/si_klinik_dummy.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-890">
+          <caret line="200" column="32" selection-start-line="200" selection-start-column="32" selection-end-line="200" selection-end-column="32" />
         </state>
       </provider>
     </entry>

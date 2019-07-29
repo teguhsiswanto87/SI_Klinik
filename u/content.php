@@ -58,11 +58,13 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } elseif ($_GET['m'] == 'resep') {
         if (moduleAccess($_GET['m'], $accessName))
             include "module/mod_resep/resep.php";
+    } elseif ($_GET['m'] == 'laporan') {
+        if (moduleAccess($_GET['m'], $accessName))
+            include "module/mod_laporan/laporan.php";
     } elseif ($_GET['m'] == 'pembayaran') {
         if (moduleAccess($_GET['m'], $accessName))
             include "module/mod_pembayaran/pembayaran.php";
-    }
-    else {
+    } else {
         echo "Modul <b>$_GET[m]</b> sedang dibuat";
     }
 

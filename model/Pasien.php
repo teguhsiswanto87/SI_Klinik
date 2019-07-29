@@ -21,6 +21,45 @@ class Pasien
         }
     }
 
+// get data from Pasien
+    function getListPasienForPembayaran()
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $sql = "SELECT * FROM pasien WHERE id_pasien in(select id_pasien from resep_dokter where not id_pasien in(select id_pasien from pembayaran) )";
+            $res = $conn->query($sql);
+            if ($res) {
+                $data = $res->fetch_all(MYSQLI_ASSOC);
+                $res->free();
+                return $data;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+// get data from Pasien and pemeriksaan
+    function getListPasienForRecipe()
+    {
+        $conn = dbConnect();
+        if ($conn->connect_errno == 0) {
+            $tanggal = date("Y-m-d");
+            $sql = "SELECT * FROM pasien WHERE id_pasien in(select id_pasien from info_pemeriksaan where tgl_periksa='$tanggal')";
+            $res = $conn->query($sql);
+            if ($res) {
+                $data = $res->fetch_all(MYSQLI_ASSOC);
+                $res->free();
+                return $data;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
 // get 1 data to put in edit form
     function getItemPasien($id_pasien)
     {

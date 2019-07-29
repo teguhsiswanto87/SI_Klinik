@@ -94,7 +94,7 @@ switch ($act) {
                         <select name="id_pasien">
                             <option>--Pilih Pasien--</option>
                             <?php
-                            $dataPasien = $pasien->getListPasien();
+                            $dataPasien = $pasien->getListPasienForPembayaran();
                             foreach ($dataPasien as $data) {
                                 echo "<option value='$data[id_pasien]'>$data[nama_pasien]</option> ";
                             }
@@ -104,7 +104,7 @@ switch ($act) {
                     <div class="ui grid">
                         <div class="field eight wide column" id="passwordId">
                             <label>Biaya</label>
-                            <input type="text" name="biaya" placeholder="Biaya">
+                            <input type="number" name="biaya" placeholder="Biaya">
                         </div>
                     </div>
                     <button class="ui basic primary button right floated" type="submit" name="btnPembayaranAdd">

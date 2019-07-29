@@ -16,7 +16,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
     ?>
     <div class="ui secondary pointing menu">
-        <a class="active item ui label" style="text-transform: capitalize" title="Edit Akun"
+        <a class="active item ui label" style="" title="Edit Akun"
            href=<?php echo "media.php?m=pengguna&act=edit&id=$_SESSION[id_pengguna]"; ?>>
             <img class="ui right spaced avatar image"
                  src=<?php echo "$dir_icon$icon"; ?>>

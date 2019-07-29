@@ -97,7 +97,7 @@ switch ($act) {
                         <select name="id_pasien">
                             <option>--Pilih Pasien--</option>
                             <?php
-                            $dataPasien = $pasien->getListPasien();
+                            $dataPasien = $pasien->getListPasienForRecipe();
                             foreach ($dataPasien as $data) {
                                 echo "<option value='$data[id_pasien]'>$data[nama_pasien]</option> ";
                             }

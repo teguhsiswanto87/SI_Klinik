@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 28, 2019 at 06:40 AM
+-- Generation Time: Jul 29, 2019 at 04:09 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.7
 
@@ -39,9 +39,10 @@ CREATE TABLE `direktur_utama` (
 --
 
 INSERT INTO `direktur_utama` (`id_direktur`, `id_pengguna`, `nama_direktur`) VALUES
-('dr0001', 'pg0003', 'wahid herlambang suroso'),
-('dr0002', 'pg0004', 'rizal arif nugraha'),
-('dr0003', NULL, 'brigita julia png');
+('dr0001', 'pg0003', 'Wahid Herlambang Suroso'),
+('dr0002', 'pg0004', 'Rizal Arif Nugraha'),
+('dr0003', NULL, 'Sulaksono'),
+('dr0004', NULL, 'Sukamto');
 
 -- --------------------------------------------------------
 
@@ -62,9 +63,13 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id_dokter`, `id_pengguna`, `nama_dokter`, `spesialisasi`, `jadwal`) VALUES
-('dk0001', 'pg0005', 'dr. alif hermawan', 'dokter gigi', 'rabu'),
-('dk0002', NULL, 'dr. mahmudin anwar', 'dokter anak', 'sabtu'),
-('dk0003', NULL, 'dr.anwar sapu sapu', 'dokter anak', 'kagaklibur');
+('dk0001', NULL, 'dr.Alif Gunawan', 'dokter umum', 'rabu'),
+('dk0002', 'pg0005', 'dr.Rashil Alif', 'dokter gigi', 'sabtu'),
+('dk0003', NULL, 'dr. Happy Asmara', 'dokter gizi', 'senin'),
+('dk0004', 'pg0006', 'dr. Brigita Julia PNG', 'dokter anak', 'selasa'),
+('dk0005', NULL, 'dr.Nanang Herman', 'dokter THT', 'minggu'),
+('dk0006', NULL, 'dr.Subhan Mahendra', 'dokter umum', 'jumat'),
+('dk0007', NULL, 'dr.Alex Nurdin', 'dokter gizi', 'kamis');
 
 -- --------------------------------------------------------
 
@@ -77,8 +82,23 @@ CREATE TABLE `info_pemeriksaan` (
   `id_dokter` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_pasien` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tgl_periksa` date NOT NULL,
-  `hasil_periksa` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `hasil_periksa` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_pemeriksaan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `info_pemeriksaan`
+--
+
+INSERT INTO `info_pemeriksaan` (`id_pemeriksaan`, `id_dokter`, `id_pasien`, `tgl_periksa`, `hasil_periksa`, `nama_pemeriksaan`) VALUES
+('ip0001', 'dk0004', 'ps0003', '2019-07-28', 'pasien mengalami diare', 'cek kesehatan biasa'),
+('ip0002', 'dk0004', 'ps0004', '2019-07-28', 'pasien mangelami flu-flu dan demam', 'cek kesehatan biasa'),
+('ip0003', 'dk0002', 'ps0002', '2019-07-28', '-terdapat 3 lubang, 2 atas + 1 bawah -pasien mengalami gigi sensitif', 'cek lubang di gigi dan kesehatan mulut'),
+('ip0004', 'dk0002', 'ps0004', '2019-07-28', '2 gigi telah dicopot agar tidak terhidar dari infeksi', 'ada 2 gigi yang harus dicopot'),
+('ip0005', 'dk0004', 'ps0016', '2019-07-28', 'pasien mengalami kelelahan dan harus istirahat supaya kondisi tubuhnya bisa pulih kembali', 'cek kesehatan biasa'),
+('ip0006', 'dk0004', 'ps0011', '2019-07-29', 'Cek kesehatan normal, namun kurang istirahat', 'cek kesehatan biasa'),
+('ip0007', 'dk0004', 'ps0014', '2019-07-29', 'kesehatan mulut baik tapi terdapat 2 gigi yag harus dicabut namun pasien belum mau untuk copot giginya', 'cek lubang di gigi dan kesehatan mulut'),
+('ip0008', 'dk0004', 'ps0004', '2019-07-29', 'pasien terkena penyakit flu dan diare', 'cek kesehatan biasa');
 
 -- --------------------------------------------------------
 
@@ -136,7 +156,26 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `kontak`) VALUES
-('ps0002', 'siti jenar pengalaman', 'semarang', '1999-09-30', 'L', 'jl.rumongso ingsun waye wayae adus no.13', '089988877765');
+('ps0002', 'Siti Jenar Pengalaman', 'Semarang', '1999-09-30', 'L', 'Jl.Babakan Sari No.1 no.13', '089988877765'),
+('ps0003', 'Wahyu Kolosebo', 'Yogyakarta', '1981-09-25', 'L', 'Jl.Bumi Mars No.13', '0222897867'),
+('ps0004', 'Agus Kotak', 'Cilacap', '1984-02-12', 'L', 'Jl.Kebaktian No.190', '089123321123'),
+('ps0005', 'Yuni', 'Bandung', '1998-09-11', 'P', 'Jl.Stasiun Selatan No.120', '0887766554433'),
+('ps0006', 'Sukadana', 'Bali', '2005-01-25', 'L', 'Jl.Lamongan No.2009', '0897765655'),
+('ps0007', 'Alamsyah Nur Rohman', 'Sidoarjo', '2008-09-26', 'L', 'Jl.Pegangsaan Timur No.23', '081232121'),
+('ps0008', 'Inul Maryati', 'Garut', '1997-07-10', 'P', 'Jl.Serayu Utama belakang Indomaret', '08997867565'),
+('ps0009', 'Hernian Dwitama', 'Sukabumi', '2006-06-18', 'P', 'Jl.Sukasari Belok Kiri No.2', '0855566676767'),
+('ps0010', 'Sukantama', 'Jogyakarta', '1996-06-18', 'L', 'Jl.Gajah Mada No.23', '081234567'),
+('ps0011', 'Markonah', 'Sumedang', '2002-04-23', 'P', 'Gg.Buntu Selatan No.12', '0855998878'),
+('ps0012', 'Berlian Asep', 'Bandung', '1998-04-08', 'L', 'Jl.Sumangsih Tengah No.13', '089978564578'),
+('ps0013', 'Setiawan Syah', 'Bandung', '1999-02-03', 'L', 'Jl.Bunga Mawar Merah No.77', '087687767677'),
+('ps0014', 'Udayana', 'Indramayu', '1999-02-23', 'L', 'Jl.Sekarsari Utara', '088878788123'),
+('ps0015', 'Agung Pribadi Firmawan', 'Surakarta', '1999-03-02', 'L', 'Jl.Jakarta No.123', '0877889909'),
+('ps0016', 'Faisal Rahman', 'Jakarta', '2007-01-29', 'L', 'Jl.Pegangsaan Timur dekat pasar baru No.34', '08996971876'),
+('ps0017', 'Sumiati Ineke', 'Merauke', '2000-10-29', 'P', 'Jl.Jayapuran Raya No.1', '08789567345'),
+('ps0018', 'Kurniawan Tri Nugroho', 'Madiun', '1992-03-02', 'L', 'Komp.Permata Berlian Emas', '089999999999'),
+('ps0019', 'Anugrah Istimewa', 'Palangkaraya', '1998-04-09', 'L', 'Jl.Syukur Dalam Raya No.787', '08776656765'),
+('ps0020', 'Fatimah Zukkarnaen', 'Padang', '1994-04-30', 'P', 'Jl,Sesama Np1234', '0877667889'),
+('ps0021', 'Suliyana Amier', 'Belitung', '1996-03-04', 'P', 'Komp.Perumahan Nusa Dua ASri No.102', '08786657789');
 
 -- --------------------------------------------------------
 
@@ -151,6 +190,13 @@ CREATE TABLE `pembayaran` (
   `tgl` date NOT NULL,
   `biaya` int(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`no_transaksi`, `id_pasien`, `id_petugas`, `tgl`, `biaya`) VALUES
+('pb0001', 'ps0004', 'pa0003', '2019-07-28', 45000);
 
 -- --------------------------------------------------------
 
@@ -172,10 +218,12 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`, `status`, `url_photo`, `id_session`) VALUES
-('pg0003', 'wahid', '63ea7bc88beb18b07b11bb65f91290a86e238f15', 'dirut', '', 'i9s2vkpunq414b9e9d2nle24vg'),
-('pg0004', 'rizal', '584ffd958df0120b7b1e2a122302c8099b6bdbe8', 'dirut', '', 'hdm57oi81oq706vbiruvfighnf'),
-('pg0005', 'alif', '707fb7d2aac6a040c4e13ca3caff4a2ba9c0308d', 'dokter', '', 'ljo8d44mooi8eauk9if48964c4'),
-('pg0006', 'jajang', '366f12d3111672faf9cdf7f8c09c7a3c8e252dde', 'petugas', '', 'rs3b26a1k5ta269qoc0p2vbi81');
+('pg0003', 'wahid', '63ea7bc88beb18b07b11bb65f91290a86e238f15', 'dirut', '', 'l74sq0u1bses1g7s4f5j36gh56'),
+('pg0004', 'rizal', '584ffd958df0120b7b1e2a122302c8099b6bdbe8', 'dirut', '', NULL),
+('pg0005', 'rashil', '67e5e3591b20d2d7195998f78c01d0895fb383ea', 'dokter', '', '7k0efnjh70l820atffv17492pg'),
+('pg0006', 'brigita', '2848fc496796712ca45f74cf0aa12cd8b110ad40', 'dokter', '', 'eoqm5eeoa4op3d1o3kasail517'),
+('pg0007', 'angga', '26c352d286df9c08cafd83fa2f36143412aa5e0d', 'petugas', '', 'i8un0r6ha8aj9gsoefd2sacgcu'),
+('pg0008', 'teguh', 'f4fe1d827308e4e52d4d49e62f33d7d08ffb4a75', 'petugas', '', '0jc1unf6jf5g6tsqic2anmae8l');
 
 -- --------------------------------------------------------
 
@@ -196,9 +244,11 @@ CREATE TABLE `petugas_administrasi` (
 --
 
 INSERT INTO `petugas_administrasi` (`id_petugas`, `id_pengguna`, `nama_pegawai`, `alamat`, `kontak`) VALUES
-('pa0001', NULL, 'nuri gendise', 'jl.kebangsaan timur tengah no.13', '089978675645'),
-('pa0002', NULL, 'akmarina', 'jl.sariwates indah no.17', '089566677789'),
-('pa0003', 'pg0006', 'sukmara jajang', 'jl.layang no.1', '08111178900');
+('pa0001', 'pg0008', 'Teguh Siswanto', 'Jl.Sariwates Indah No.01', '08996976185'),
+('pa0002', NULL, 'Akmarina', 'Jl.Sariwates Indah No.17', '089566677789'),
+('pa0003', 'pg0007', 'Angga Heru', 'Jl.Layang no.1', '08111178900'),
+('pa0004', NULL, 'Anwar Saputra', 'Jl.Saturnus no.13', '09989878766'),
+('pa0005', NULL, 'Puspita Sari', 'Jl.Semenanjung Selatan 5', '02223344556');
 
 -- --------------------------------------------------------
 
@@ -207,12 +257,21 @@ INSERT INTO `petugas_administrasi` (`id_petugas`, `id_pengguna`, `nama_pegawai`,
 --
 
 CREATE TABLE `resep_dokter` (
-  `id_obat` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_resep` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_dokter` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_pasien` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nama_obat` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `nama_resep` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_obat` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `resep_dokter`
+--
+
+INSERT INTO `resep_dokter` (`id_resep`, `id_dokter`, `id_pasien`, `nama_resep`, `jenis_obat`) VALUES
+('rd0001', 'dk0004', 'ps0004', 'nama resep', 'jenis obat'),
+('rd0002', 'dk0004', 'ps0014', 'penghilang rasa sakit', 'obat peredam nyeri'),
+('rd0003', 'dk0004', 'ps0011', 'pemulih kondisi tubuh', 'sanmol, antibiotik');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +336,7 @@ ALTER TABLE `petugas_administrasi`
 -- Indexes for table `resep_dokter`
 --
 ALTER TABLE `resep_dokter`
-  ADD PRIMARY KEY (`id_obat`),
+  ADD PRIMARY KEY (`id_resep`),
   ADD KEY `fk_rd_dokter` (`id_dokter`),
   ADD KEY `fk_rd_pasien` (`id_pasien`);
 
@@ -289,7 +348,7 @@ ALTER TABLE `resep_dokter`
 -- AUTO_INCREMENT for table `module`
 --
 ALTER TABLE `module`
-  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

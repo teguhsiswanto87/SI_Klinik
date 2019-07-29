@@ -25,12 +25,12 @@ switch ($act) {
                 </a>
             </div>
             <div class="sixteen wide column">
-                <table class="ui selectable very basic table fixed">
+                <table class="ui selectable very basic table">
                     <thead>
                     <tr>
                         <th>ID_Pemeriksaan</th>
                         <th>Pasien</th>
-                        <th>Dokter</th>
+                        <th class="three wide">Dokter</th>
                         <th>Tanggal</th>
                         <th>Nama pemeriksaan</th>
                         <th>Hasil Periksa</th>
@@ -53,7 +53,7 @@ switch ($act) {
                         $dataDokter = $dokter->getItemDokter($data['id_dokter']);
                         $shortDoctorName = explode(' ', trim($dataDokter['nama_dokter']));
                         echo "dr.$shortDoctorName[1]";
-                        echo "
+                        echo " <a class='ui left pointing mini label'>$dataDokter[spesialisasi]</a>
                 </td>
                 <td>";
                         $tanggal = tgl_indo($data['tgl_periksa']);
@@ -61,11 +61,18 @@ switch ($act) {
                 </td>
                 <td>$data[nama_pemeriksaan]</td>
                 <td>$data[hasil_periksa]</td>
-                <td>
+                <td>";
+                        if ($_SESSION['id_pengguna'] != $dataDokter['id_pengguna']) {
+
+                        } else {
+
+                            echo "
                     <a href='?m=$m&act=edit&id=$data[id_pemeriksaan]'>Edit</a> | 
                     <a href='$aksi?m=$m&act=hapus&id=$data[id_pemeriksaan]'
                         onclick='return confirm(`Hapus $data[nama_pemeriksaan] ID=$data[id_pemeriksaan]?`);'>Hapus
-                    </a>
+                    </a>";
+                        }
+                        echo "
                 </td>
                 </tr>";
                         $no++;
